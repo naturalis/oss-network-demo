@@ -1,0 +1,12 @@
+graph cumulus {
+ "oob-mgmt-server"  [function="oob-server" memory="3072" mgmt_ip="192.168.200.254/24"]
+ "oob-mgmt-switch"  [function="oob-switch" mgmt_ip="192.168.200.1"]
+ "spine1"  [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.2"]
+ "spine2"  [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.3"]
+ "firewall-primary" [function="fake"]
+ "firewall-secondary" [function="fake"]
+   "firewall-primary":"swp1" -- "spine1":"swp1"
+   "firewall-primary":"swp2" -- "spine1":"swp2"
+   "firewall-secondary":"swp1" -- "spine2":"swp1"
+   "firewall-secondary":"swp2" -- "spine2":"swp2"
+}
