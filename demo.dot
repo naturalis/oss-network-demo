@@ -2,6 +2,9 @@ graph demo {
  "oob-mgmt-server" [function="oob-server" config="./helper_scripts/oob_switch_config.sh" memory="3072" mgmt_ip="192.168.200.254/24"]
  "oob-mgmt-switch" [function="oob-switch" config="./helper_scripts/oob_switch_config.sh" mgmt_ip="192.168.200.100"]
 
+ "firewall1" [function="fake"]
+ "firewall2" [function="fake"]
+
  "spine1" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.1"]
  "spine2" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.2"]
  
@@ -10,8 +13,6 @@ graph demo {
  "leaf3" [function="leaf" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.30"]
  "leaf4" [function="leaf" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.40"]
 
- "firewall1" [function="fake"]
- "firewall2" [function="fake"]
    "spine1":"swp45" -- "firewall1":"swp0"
    "spine1":"swp46" -- "firewall1":"swp1"
    "spine2":"swp45" -- "firewall2":"swp0"
