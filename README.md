@@ -1,2 +1,3 @@
-# cumulus-opnsense
-Cumulus in combination with OPNsense
+# oss-network-demo
+
+Try an open source software based network, using OPNsense and Cumulus.
