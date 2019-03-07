@@ -29,8 +29,8 @@ graph demo {
    "spine2":"swp49" -- "spine3":"swp49"
    "spine2":"swp50" -- "spine3":"swp50"
 
-   "spine2":"swp1" -- "leaf2":"swp52"
-   "spine3":"swp1" -- "leaf3":"swp52"
+   "spine2":"swp1" -- "leaf1":"swp52"
+   "spine3":"swp1" -- "leaf2":"swp52"
 
    "leaf1":"swp50" -- "leaf2":"swp50"
    "leaf3":"swp50" -- "leaf4":"swp50"
