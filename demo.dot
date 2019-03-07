@@ -24,7 +24,7 @@ graph demo {
    "spine3":"swp45" -- "firewall3":"swp0"
    "spine3":"swp46" -- "firewall3":"swp1"
    
-   "firewall1":"swp2" -- "firewall2":"swp2"
+   "firewall2":"swp2" -- "firewall2":"swp3"
 
    "spine2":"swp49" -- "spine3":"swp49"
    "spine2":"swp50" -- "spine3":"swp50"
