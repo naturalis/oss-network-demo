@@ -1,0 +1,31 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "rudibroekhuizen/opnsense"
+  config.vm.box_version = "19.1"
+
+  # firewall1
+  config.vm.define 'firewall1' do |config|
+  config.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 10021
+    config.vm.provider 'virtualbox' do |vb|
+      vb.customize ['modifyvm', :id, '--natpf1', "https1,tcp,127.0.0.1,10441,,443" ]
+      #vb.customize ['modifyvm', :id, '--intnet2', '1551961846_net15']
+    end
+  end
+
+  # firewall2
+  config.vm.define 'firewall2' do |config|
+  config.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 10022
+    config.vm.provider 'virtualbox' do |vb|
+      vb.customize ['modifyvm', :id, '--natpf1', "https2,tcp,127.0.0.1,10442,,443" ]
+      #vb.customize ['modifyvm', :id, '--intnet2', '1551961846_net15']
+    end
+  end
+  
+  # firewall3
+  config.vm.define 'firewall3' do |config|
+  config.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 10023
+    config.vm.provider 'virtualbox' do |vb|
+      vb.customize ['modifyvm', :id, '--natpf1', "https3,tcp,127.0.0.1,10443,,443" ]
+      #vb.customize ['modifyvm', :id, '--intnet2', '1551961846_net15']
+    end
+  end
+end

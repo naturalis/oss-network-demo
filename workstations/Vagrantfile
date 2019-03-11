@@ -1,0 +1,10 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "peru/ubuntu-18.04-desktop-amd64"
+  config.vm.box_version = "20190222.03"
+  
+  config.vm.define 'workstation1' do |config|
+    config.vm.provider 'virtualbox' do |vb|
+      #vb.customize ['modifyvm',:id, '--intnet2', '1551961846_net__']
+    end
+  end  
+end
