@@ -41,5 +41,4 @@ graph demo {
    
    "workstation1":"swp1" -- "leaf1":"swp1"
    "workstation2":"swp1" -- "leaf3":"swp1"
-   
 }
