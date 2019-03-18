@@ -20,12 +20,21 @@ Vagrant.configure("2") do |config|
     end
   end
   
-  # firewall3
-  config.vm.define 'firewall3' do |config|
-  config.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 10023
+# firewall3
+  config.vm.define 'firewall4' do |config|
     config.vm.provider 'virtualbox' do |vb|
-      vb.customize ['modifyvm', :id, '--natpf1', "https3,tcp,127.0.0.1,10443,,443" ]
-      #vb.customize ['modifyvm', :id, '--intnet2', '1551961846_net15']
+      #nic1, wan
+      vb.customize ['modifyvm', :id, '--natpf1', "https-firewall3,tcp,127.0.0.1,10443,,443" ]
+      vb.customize ['modifyvm', :id, '--natpf1', "ssh-firewall3,tcp,127.0.0.1,10023,,22"]
+      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net7']
+      #nic2, lan
+      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net14']
+      #nic3, oob
+      vb.customize ['modifyvm', :id, '--nic3', 'intnet']
+      vb.customize ["modifyvm", :id, "--nictype3", "virtio"]
+      vb.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net31']
+      vb.customize ['modifyvm', :id, '--macaddress3', '44383900003b']
     end
   end
 end
