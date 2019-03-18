@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   end
   
 # firewall3
-  config.vm.define 'firewall4' do |config|
+  config.vm.define 'firewall3' do |config|
     config.vm.provider 'virtualbox' do |vb|
       #nic1, wan
       vb.customize ['modifyvm', :id, '--natpf1', "https-firewall3,tcp,127.0.0.1,10443,,443" ]
