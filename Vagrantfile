@@ -1,8 +1,8 @@
 # Created by Topology-Converter v4.6.9
-#    Template Revision: v4.6.9
+#    Template Revision: v4.6.8
 #    https://github.com/cumulusnetworks/topology_converter
-#    using topology data from: ../oss-network-demo/switches/demo.dot
-#    built with the following args: ./topology_converter.py ../oss-network-demo/switches/demo.dot -c
+#    using topology data from: ../demo.dot
+#    built with the following args: ./topology_converter.py ../demo.dot -c
 #
 #    NOTE: in order to use this Vagrantfile you will need:
 #       -Vagrant(v2.0.2+) installed: http://www.vagrantup.com/downloads
@@ -83,7 +83,7 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
 
-  simid = 1551972815
+  simid = 1552905337
 
   config.vm.provider "virtualbox" do |v|
     v.gui=false
@@ -241,7 +241,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 # Transfer Bridge File
@@ -368,7 +368,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
@@ -469,7 +469,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
@@ -582,7 +582,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
@@ -679,7 +679,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
@@ -768,7 +768,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
@@ -861,7 +861,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
@@ -950,7 +950,7 @@ end
     device.vm.provision :shell , inline: "(sudo grep -q 'mesg n' /root/.profile 2>/dev/null && sudo sed -i '/mesg n/d' /root/.profile  2>/dev/null) || true;", privileged: false
 
     #Copy over Topology.dot File
-    device.vm.provision "file", source: "../oss-network-demo/switches/demo.dot", destination: "~/topology.dot"
+    device.vm.provision "file", source: "../demo.dot", destination: "~/topology.dot"
     device.vm.provision :shell, privileged: false, inline: "sudo mv ~/topology.dot /etc/ptm.d/topology.dot"
 
 
