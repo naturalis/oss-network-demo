@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "rudibroekhuizen/opnsense"
   config.vm.box_version = "19.1.4"
-  config.vm.boot_timeout = 3
+  config.vm.boot_timeout = 5
   
   # firewall1
   config.vm.define 'firewall1' do |config|
