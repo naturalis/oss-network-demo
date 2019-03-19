@@ -4,33 +4,46 @@ Vagrant.configure("2") do |config|
 
   # firewall1
   config.vm.define 'firewall1' do |config|
-  config.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 10021
     config.vm.provider 'virtualbox' do |vb|
-      vb.customize ['modifyvm', :id, '--natpf1', "https1,tcp,127.0.0.1,10441,,443" ]
-      #vb.customize ['modifyvm', :id, '--intnet2', '1551961846_net15']
+      #nic1, wan, nat, already available as default in image
+      #nic2, lan
+      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net17']
+      #nic3, oob
+      vb.customize ['modifyvm', :id, '--nic3', 'intnet']
+      vb.customize ["modifyvm", :id, "--nictype3", "virtio"]
+      vb.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net30']
+      vb.customize ['modifyvm', :id, '--macaddress3', '443839000039']
     end
   end
 
   # firewall2
   config.vm.define 'firewall2' do |config|
-  config.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 10022
     config.vm.provider 'virtualbox' do |vb|
-      vb.customize ['modifyvm', :id, '--natpf1', "https2,tcp,127.0.0.1,10442,,443" ]
-      #vb.customize ['modifyvm', :id, '--intnet2', '1551961846_net15']
+      #nic1, outside
+      vb.customize ['modifyvm', :id, '--intnet1', '1551972815_net12']
+      #nic2, inside
+      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net10']
+      #nic3, oob
+      vb.customize ['modifyvm', :id, '--nic3', 'intnet']
+      vb.customize ["modifyvm", :id, "--nictype3", "virtio"]
+      vb.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
+      vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net32']
+      vb.customize ['modifyvm', :id, '--macaddress3', '44383900003d']
     end
   end
   
-# firewall3
+  # firewall3
   config.vm.define 'firewall3' do |config|
     config.vm.provider 'virtualbox' do |vb|
-      #nic1, wan
-      vb.customize ['modifyvm', :id, '--natpf1', "https-firewall3,tcp,127.0.0.1,10443,,443" ]
-      vb.customize ['modifyvm', :id, '--natpf1', "ssh-firewall3,tcp,127.0.0.1,10023,,22"]
+      #nic1, outside
       vb.customize ['modifyvm', :id, '--intnet1', '1551972815_net7']
-      #nic2, lan
+      #nic2, inside
       vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net14']
       #nic3, oob
       vb.customize ['modifyvm', :id, '--nic3', 'intnet']
+      vb.customize ["modifyvm", :id, "--nictype3", "virtio"]
+      vb.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
       vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net31']
       vb.customize ['modifyvm', :id, '--macaddress3', '44383900003b']
     end
