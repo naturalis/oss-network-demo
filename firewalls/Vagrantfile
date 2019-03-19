@@ -1,4 +1,7 @@
 Vagrant.configure("2") do |config|
+
+  simid = 1552905337
+
   config.vm.box = "rudibroekhuizen/opnsense"
   config.vm.box_version = "19.1.4"
 
@@ -7,9 +10,9 @@ Vagrant.configure("2") do |config|
     config.vm.provider 'virtualbox' do |vb|
       #nic1, wan, nat, already available as default in image
       #nic2, lan
-      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net17']
+      vb.customize ['modifyvm', :id, '--intnet2', '#{simid}_net17']
       #nic3, oob
-      vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net30']
+      vb.customize ['modifyvm', :id, '--intnet3', '#{simid}_net30']
       vb.customize ['modifyvm', :id, "--cableconnected3", 'on']
       #vb.customize ['modifyvm', :id, '--macaddress3', '443839000039']
     end
@@ -19,11 +22,11 @@ Vagrant.configure("2") do |config|
   config.vm.define 'firewall2' do |config|
     config.vm.provider 'virtualbox' do |vb|
       #nic1, outside
-      vb.customize ['modifyvm', :id, '--intnet1', '1551972815_net12']
+      vb.customize ['modifyvm', :id, '--intnet1', '#{simid}_net12']
       #nic2, inside
-      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net10']
+      vb.customize ['modifyvm', :id, '--intnet2', '#{simid}_net10']
       #nic3, oob
-      vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net32']
+      vb.customize ['modifyvm', :id, '--intnet3', '#{simid}_net32']
       vb.customize ['modifyvm', :id, "--cableconnected3", 'on']
       #vb.customize ['modifyvm', :id, '--macaddress3', '44383900003d']
     end
@@ -33,11 +36,11 @@ Vagrant.configure("2") do |config|
   config.vm.define 'firewall3' do |config|
     config.vm.provider 'virtualbox' do |vb|
       #nic1, outside
-      vb.customize ['modifyvm', :id, '--intnet1', '1551972815_net7']
+      vb.customize ['modifyvm', :id, '--intnet1', '#{simid}_net7']
       #nic2, inside
-      vb.customize ['modifyvm', :id, '--intnet2', '1551972815_net14']
+      vb.customize ['modifyvm', :id, '--intnet2', '#{simid}_net14']
       #nic3, oob
-      vb.customize ['modifyvm', :id, '--intnet3', '1551972815_net31']
+      vb.customize ['modifyvm', :id, '--intnet3', '#{simid}_net31']
       vb.customize ['modifyvm', :id, "--cableconnected3", 'on']
       #vb.customize ['modifyvm', :id, '--macaddress3', '44383900003b']
     end
