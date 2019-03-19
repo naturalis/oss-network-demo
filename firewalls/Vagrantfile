@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   # firewall1
   config.vm.define 'firewall1' do |config|
     config.vm.provider 'virtualbox' do |vb|
+      vb.name = "#{simid}_firewall1"
       #nic1, wan, nat, already available as default in image
       #nic2, lan
       vb.customize ['modifyvm', :id, '--intnet2', '#{simid}_net17']
