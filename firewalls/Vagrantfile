@@ -12,7 +12,6 @@ Vagrant.configure("2") do |config|
       vb.name = "#{simid}_firewall1"
       #nic1, wan, nat, already available in box
       #nic2, lan
-      vb.customize ['modifyvm', :id, '--nic2', 'intnet']
       vb.customize ['modifyvm', :id, '--intnet2', "#{simid}_net17"]
       #nic3, oob
       vb.customize ['modifyvm', :id, '--intnet3', "#{simid}_net30"]
