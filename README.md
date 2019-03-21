@@ -11,7 +11,7 @@ vagrant plugin install vagrant-vbguest
 
 ### Create hostonly network
 
-Used by LAN interface
+Used by LAN interface.
 
 ```bash
 vboxmanage hostonlyif create
