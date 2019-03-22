@@ -1,9 +1,11 @@
 ---
 # This is used to manage Ansible role dependences
 # http://docs.ansible.com/galaxy.html#installing-multiple-roles-from-a-file
-# Install with: `ansible-galaxy install -r requirements.yml`
+# Install with: ansible-galaxy install -r requirements.yml --roles-path .
 
 - name: ansible-cumulus
   src: https://gitlab.com/rudibroekhuizen/ansible-cumulus.git
-  scm: git
+
+- name: ansible-opnsense
+  src: https://github.com/naturalis/ansible-opnsense
 ...
