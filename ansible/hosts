@@ -9,10 +9,13 @@ firewall3 ansible_host=192.168.200.12
 [leafs]
 leaf1
 leaf2
+leaf3
+leaf4
 
 [spines]
 spine1
 spine2
+spine3
 
 [switches:children]
 leafs
