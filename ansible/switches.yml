@@ -1,0 +1,7 @@
+---
+- hosts: switches
+  gather_facts: false
+  become: true
+  roles:
+    - ansible-cumulus
+...
