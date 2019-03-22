@@ -21,4 +21,8 @@ vagrant plugin install vagrant-vbguest
 ```
 
 
-
+### Run ansible commands from oob-mgmt-server
+```bash
+ansible all -c paramiko -m shell -a 'uptime' -l firewall1
+ansible-playbook -c paramiko firewalls.yml -l firewall1
+```
