@@ -1,0 +1,5 @@
+---
+nclu:
+  - add syslog host 192.168.200.254 port udp 514
+
+...
