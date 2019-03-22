@@ -1,5 +1,22 @@
 ---
 nclu:
   - add syslog host 192.168.200.254 port udp 514
-
+  - add snmp-server listening-address localhost
+  - add routing defaults datacenter
+  - add routing service integrated-vtysh-config
+  - add routing log syslog informational
+  - add routing route 0.0.0.0/0 172.16.1.1
+  - add routing route 10.50.0.0/16 172.16.20.11
+  - add routing route 172.16.10.0/24 172.16.20.11
+  - add routing route 172.16.10.0/24 172.16.30.11
+  - add routing route 10.50.0.0/16 172.16.30.11
+  - add dns nameserver ipv4 192.168.200.254 vrf mgmt
+  - add bridge bridge vlan-aware
+  - add interface eth0 vrf mgmt
+  - add interface swp1 ip address 172.16.20.10/24
+  - add interface swp2 ip address 172.16.30.10/24
+  - add interface swp47 ip address 172.16.1.2/30
+  - add loopback lo
+  - add vrf mgmt ip address 127.0.0.1/8
+  - add vrf mgmt vrf-table auto
 ...
