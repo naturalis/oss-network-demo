@@ -1,5 +1,5 @@
 ---
-ansible_host: 192.168.200.12
+ansible_host: 192.168.200.10
 ansible_user: root
 ansible_ssh_pass: opnsense
 
