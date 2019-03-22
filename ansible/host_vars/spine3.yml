@@ -20,7 +20,7 @@ nclu:
   - add interface swp45 bridge access 10
   - add interface swp46 bridge vids 50-52
   - add interface swp47 ip address 172.16.30.11/24
-  - add interface swp49-50 post-up 'ip link set $IFACE promisc on # Only required on VX'
+  - add interface swp49-50 post-up 'ip link set $IFACE promisc on' # Only required on VX
   - add loopback lo
   - add vlan 10 ip address 172.16.10.13/24
   - add vlan 10 ip address-virtual 00:00:5e:00:01:01 172.16.10.11/24
