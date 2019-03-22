@@ -1,0 +1,7 @@
+---
+- hosts: firewalls
+  gather_facts: false
+  become: true
+  roles:
+    - ansible-opnsense
+...
