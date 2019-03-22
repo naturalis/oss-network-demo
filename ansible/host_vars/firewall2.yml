@@ -1,15 +1,15 @@
 ---
 opn_general:
-  - xpath: /opnsense/system
-    settings:
-      - key: hostname
-        value: firewall2
-      - key: domain
-        value: naturalis.nl
-  - xpath: /opnsense/nat
-    settings:
-      - key: outbound/mode
-        value: disabled
+  - system/hostname: "firewall1"
+  - system/domain: "naturalis.nl"
+  - system/webgui/protocol: "https"
+#  - system/webgui/port: "8888"
+  - system/webgui/nohttpreferercheck: "1"
+  - nat/outbound/mode: "disabled"
+
+opn_unset:
+  - system/ipv6allow
+  - trigger_initial_wizard
 
 opn_vlan_parent_interface: vtnet2
 
