@@ -2,7 +2,7 @@
 localhost ansible_connection=local
 
 [firewalls]
-firewall1 ansible_host=192.168.200.11
+firewall1
 firewall2 ansible_host=192.168.200.12
 firewall3 ansible_host=192.168.200.13
 
