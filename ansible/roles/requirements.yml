@@ -4,5 +4,6 @@
 # Install with: `ansible-galaxy install -r requirements.yml`
 
 - name: ansible-cumulus
-  src: https://gitlab.com/rudibroekhuizen/ansible-cumulus
+  src: git@gitlab.com:rudibroekhuizen/ansible-cumulus.git
+  scm: git
 ...
