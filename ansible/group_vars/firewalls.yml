@@ -1,4 +1,6 @@
 ---
+ansible_user: root
+ansible_ssh_pass: opnsense
 ansible_become_method: sudo
 ansible_python_interpreter: '/usr/bin/env python2.7'
 
