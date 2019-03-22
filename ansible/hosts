@@ -1,0 +1,23 @@
+[local]
+localhost ansible_connection=local
+
+[firewalls]
+firewall1
+firewall2
+firewall3
+
+[leafs]
+leaf1
+leaf2
+
+[spines]
+spine1
+spine2
+
+[switches:children]
+leafs
+spines
+
+[network:children]
+firewalls
+switches
