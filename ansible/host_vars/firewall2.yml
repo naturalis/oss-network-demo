@@ -1,55 +1,205 @@
 ---
 opn_general:
-  - system/hostname: "firewall1"
+  - system/hostname: "firewall2"
   - system/domain: "naturalis.nl"
   - system/webgui/protocol: "https"
-#  - system/webgui/port: "8888"
+  - system/webgui/port: "8888"
   - system/webgui/nohttpreferercheck: "1"
-  - nat/outbound/mode: "disabled"
 
 opn_unset:
   - system/ipv6allow
   - trigger_initial_wizard
 
-opn_vlan_parent_interface: vtnet2
+opn_interfaces_vlan_parent_interface: vtnet2
 
-opn_interfaces:
+opn_interfaces_specific:
+  - interface: oob
+    settings:
+      - key: if
+        value: vtnet0
+      - key: descr
+        value: oob
+      - key: ipaddr
+        value: dhcp
   - interface: wan
     settings:
       - key: if
         value: vtnet1
+      - key: descr
+        value: wan
       - key: ipaddr
         value: 172.16.10.2
       - key: subnet
         value: 24
       - key: gateway
         value: wan_gateway
-      - key: descr
-        value: wan
   - interface: lan
     settings:
       - key: if
         value: vtnet2
-      - key: ipaddr
-        value: 192.168.1.2
-      - key: subnet
-        value: 24
       - key: descr
         value: lan
+      - key: ipaddr
+        value: 192.168.1.1
+      - key: subnet
+        value: 24
   - interface: sync
     settings:
       - key: if
         value: vtnet3
-      - key: ipaddr
-        value: 192.168.254.1
-      - key: enable
-        value: 1
-      - key: subnet
-        value: 30
       - key: descr
         value: sync
+      - key: ipaddr
+        value: 192.168.254.1
+      - key: subnet
+        value: 29
+  - interface: opt1
+    vlan: 51
+    settings:
+      - key: ipaddr
+        value: 10.51.0.2
+      - key: descr
+        value: 51_management
+  - interface: opt2
+    vlan: 52
+    settings:
+      - key: ipaddr
+        value: 10.52.0.2
+      - key: descr
+        value: 52_office
+  - interface: opt3
+    vlan: 53
+    settings:
+      - key: ipaddr
+        value: 10.53.0.2
+      - key: descr
+        value: 53_voip
+
+opn_interfaces_all:
+  - key: 'enable'
+    value: "1"
+    interfaces: ['wan', 'lan', 'sync', 'oob']
+  - key: 'subnet'
+    value: "16"
+    interfaces: ['opt1', 'opt2', 'opt3']
+
+opn_virtualip_specific:
+  - vhid: 255
+    settings:
+      - key: type
+        value: single
+      - key: subnet_bits
+        value: 29
+      - key: mode
+        value: carp
+      - key: interface
+        value: wan
+      - key: subnet
+        value: 172.16.10.1
+      - key: advskew
+        value: 0
+      - key: advbase
+        value: 1
+      - key: password
+        value: opnsense
+  - vhid: 51
+    settings:
+      - key: interface
+        value: opt1
+      - key: subnet
+        value: 10.51.0.1
+  - vhid: 52
+    settings:
+      - key: interface
+        value: opt2
+      - key: subnet
+        value: 10.52.0.1
+  - vhid: 53
+    settings:
+      - key: interface
+        value: opt3
+      - key: subnet
+        value: 10.53.0.1
+
+opn_virtualip_all:
+  - key: "type"
+    value: "single"
+    vhids: ['51', '52', '53']
+  - key: "subnet_bits"
+    value: "16"
+    vhids: ['51', '52', '53']
+  - key: "mode"
+    value: "carp"
+    vhids: ['51', '52', '53']
+  - key: "advskew"
+    value: "0"
+    vhids: ['51', '52', '53']
+  - key: "advbase"
+    value: "1"
+    vhids: ['51', '52', '53']
+  - key: "password"
+    value: "opnsense"
+    vhids: ['51', '52', '53']
+
+opn_alias:
+  - name: private
+    settings:
+      - key: type
+        value: network
+      - key: address
+        value: "10.0.0.0/8 172.16.0.0/12 192.168.0.0/16"
+      - key: state
+        value: present
+  - name: ict
+    settings:
+      - key: type
+        value: network
+      - key: address
+        value: "172.16.1.0/24 172.16.10.0/24 172.16.20.0/24 172.16.30.0/24"
+      - key: state
+        value: present
+  - name: gateway_51
+    settings:
+      - key: type
+        value: network
+      - key: address
+        value: "10.51.0.1/32"
+      - key: state
+        value: present
+  - name: gateway_52
+    settings:
+      - key: type
+        value: network
+      - key: address
+        value: "10.52.0.1/32"
+      - key: state
+        value: present
+  - name: gateway_53
+    settings:
+      - key: type
+        value: network
+      - key: address
+        value: "10.53.0.1/32"
+      - key: state
+        value: present
 
 opn_filter:
+  - descr: Allow oob
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: oob
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/any
+        value: 1
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
   - descr: Allow sync
     settings:
       - key: interface
@@ -66,22 +216,180 @@ opn_filter:
         value: 1
       - key: destination/any
         value: 1
-
-opn_syslog:
-  - xpath: /opnsense/syslog
+  - descr: Allow access to gateway vlan 51
     settings:
-      - key: reverse
+      - key: type
+        value: pass
+      - key: interface
+        value: opt1
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/network
+        value: opt1
+      - key: destination/address
+        value: gateway_51
+      - key: log
         value: 1
-      - key: nentries
-        value: 50
-      - key: remoteserver
-        value: 192.168.200.254
-      - key: sourceip
-        value: oob
-      - key: ipproto
-        value: ipv4
-      - key: logall
+  - descr: Allow access to public networks from vlan 51
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: opt1
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/network
+        value: opt1
+      - key: destination/address
+        value: private
+      - key: destination/not
         value: 1
+      - key: log
+        value: 1
+  - descr: Allow access to gateway vlan 52
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: opt2
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/network
+        value: opt2
+      - key: destination/address
+        value: gateway_52
+      - key: log
+        value: 1
+  - descr: Allow access to public networks from vlan 52
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: opt2
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/network
+        value: opt2
+      - key: destination/address
+        value: private
+      - key: destination/not
+        value: 1
+      - key: log
+        value: 1
+  - descr: Allow access to gateway vlan 53
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: opt3
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/network
+        value: opt3
+      - key: destination/address
+        value: gateway_53
+      - key: log
+        value: 1
+  - descr: Allow access to public networks from vlan 53
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: opt3
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/network
+        value: opt3
+      - key: destination/address
+        value: private
+      - key: destination/not
+        value: 1
+      - key: log
+        value: 1
+
+opn_hasync:
+  - pfsyncenabled: "on"
+  - username: "root"
+  - password: "opnsense"
+  - pfsyncinterface: "pfsync"
+  - pfsyncpeerip: "192.168.254.2"
+  - synchronizetoip: "192.168.254.2"
+  - synchronizeusers: "on"
+  - synchronizevirtualip: "on"
+  - synchronizealiases: "on"
+  - synchronizerules: "on"
+  - synchronizedhcpd: "on"
+  - synchronizeauthservers: "on"
+  - synchronizecerts: "on"
+  - synchronizenat: "on"
+  - synchronizeschedules: "on"
+  - synchronizestaticroutes: "on"
+  - synchronizednsforwarder: "on"
+  - synchronizeshaper: "on"
+  - synchronizecaptiveportal: "on"        
+  - synchronizeipsec: "on"
+  - synchronizemonit: "on"
+  - synchronizeopenvpn: "on"
+  - synchronizesuricata: "on"
+  - synchronizednsresolver: "on"        
+
+opn_dhcpd:
+  - if: opt1
+    settings:
       - key: enable
+        value: 1
+      - key: range/from
+        value: 10.51.1.0
+      - key: range/to
+        value: 10.51.1.254
+      - key: gateway
+        value: 10.51.0.1
+      - key: failover_peerip
+        value: 10.51.0.3
+  - if: opt2
+    settings:
+      - key: enable
+        value: 1
+      - key: range/from
+        value: 10.52.1.0
+      - key: range/to
+        value: 10.52.1.254
+      - key: gateway
+        value: 10.52.0.1
+      - key: failover_peerip
+        value: 10.52.0.3
+  - if: opt3
+    settings:
+      - key: enable
+        value: 1
+      - key: range/from
+        value: 10.53.1.0
+      - key: range/to
+        value: 10.53.1.254
+      - key: gateway
+        value: 10.53.0.1
+      - key: failover_peerip
+        value: 10.53.0.3
+
+opn_gateways:
+  - interface: wan
+    settings:
+      - key: gateway
+        value: 172.16.10.1
+      - key: name
+        value: wan_gateway
+      - key: defaultgw
         value: 1
 ...
