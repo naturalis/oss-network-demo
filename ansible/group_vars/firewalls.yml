@@ -43,13 +43,26 @@ opn_group:
     settings:
       - member: 1
       - member: 2
-
   - name: support
     settings:
       - key: descr
         value: Support
       - key: gid
-        value: 2000
+        value: 2001
       - key: priv
         value: page-all
       - member: 3
+
+opn_vlans:
+  - tag: 51
+    settings:
+      - key: descr
+        value: "51_management"
+  - tag: 52
+    settings:
+      - key: descr
+        value: "52_office"
+  - tag: 53
+    settings:
+      - key: descr
+        value: "53_voip"
