@@ -5,6 +5,7 @@ opn_general:
   - system/webgui/protocol: "https"
   - system/webgui/port: "8888"
   - system/webgui/nohttpreferercheck: "1"
+  - nat/outbound/mode: "disabled"
 
 opn_unset:
   - system/ipv6allow
