@@ -66,3 +66,12 @@ opn_vlans:
     settings:
       - key: descr
         value: "53_voip"
+
+opn_syslog:
+  - remoteserver: "192.168.200.254"
+  - sourceip: "oob"
+  - enable: "1"
+  - reverse: "1"
+  - nentries: "50"
+  - ipproto: "ipv4"
+  - logall: "1"
