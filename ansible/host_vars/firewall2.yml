@@ -10,7 +10,7 @@ opn_unset:
   - system/ipv6allow
   - trigger_initial_wizard
 
-opn_interfaces_vlan_parent_interface: vtnet2
+opn_interfaces_vlan_parent_interface: vtnet3
 
 opn_interfaces_specific:
   - interface: oob
