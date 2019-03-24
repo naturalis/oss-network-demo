@@ -16,7 +16,7 @@ opn_interfaces_specific:
   - interface: oob
     settings:
       - key: if
-        value: vtnet0
+        value: vtnet1
       - key: descr
         value: oob
       - key: ipaddr
@@ -24,7 +24,7 @@ opn_interfaces_specific:
   - interface: wan
     settings:
       - key: if
-        value: vtnet1
+        value: vtnet2
       - key: descr
         value: wan
       - key: ipaddr
@@ -36,7 +36,7 @@ opn_interfaces_specific:
   - interface: lan
     settings:
       - key: if
-        value: vtnet2
+        value: vtnet3
       - key: descr
         value: lan
       - key: ipaddr
@@ -46,7 +46,7 @@ opn_interfaces_specific:
   - interface: sync
     settings:
       - key: if
-        value: vtnet3
+        value: vtnet4
       - key: descr
         value: sync
       - key: ipaddr
