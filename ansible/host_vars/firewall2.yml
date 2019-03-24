@@ -78,7 +78,7 @@ opn_interfaces_specific:
 opn_interfaces_all:
   - key: 'enable'
     value: "1"
-    interfaces: ['wan', 'lan', 'sync', 'oob']
+    interfaces: ['wan', 'lan', 'sync', 'oob', 'opt1', 'opt2', 'opt3']
   - key: 'subnet'
     value: "16"
     interfaces: ['opt1', 'opt2', 'opt3']
