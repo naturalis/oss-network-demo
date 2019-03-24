@@ -12,13 +12,14 @@ Vagrant.configure("2") do |config|
   config.vm.define 'firewall1' do |config|
     config.vm.provider 'virtualbox' do |vb|
       vb.name = "#{simid}_firewall1"
-      #nic1, oob
-      vb.customize ['modifyvm', :id, '--nic1', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net30"]
-      #nic2, wan, nat, already available in box
-      #nic3, lan (inside)
-      vb.customize ['modifyvm', :id, '--nic3', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet3', "#{simid}_net17"]
+      #nic1, vagrant, already configured in box
+      #nic2, oob
+      vb.customize ['modifyvm', :id, '--nic2', 'intnet']
+      vb.customize ['modifyvm', :id, '--intnet2', "#{simid}_net30"]
+      #nic3, wan, nat, already configured in box
+      #nic4, lan (inside)
+      vb.customize ['modifyvm', :id, '--nic4', 'intnet']
+      vb.customize ['modifyvm', :id, '--intnet4', "#{simid}_net17"]
     end
   end
 
@@ -26,20 +27,21 @@ Vagrant.configure("2") do |config|
   config.vm.define 'firewall2' do |config|
     config.vm.provider 'virtualbox' do |vb|
       vb.name = "#{simid}_firewall2"
-      #nic1, oob
-      vb.customize ['modifyvm', :id, '--nic1', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net32"]
-      #nic2, wan (outside)
+      #nic1, vagrant, already configured in box
+      #nic2, oob
       vb.customize ['modifyvm', :id, '--nic2', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet2', "#{simid}_net12"]
-      #nic3, lan (inside)
+      vb.customize ['modifyvm', :id, '--intnet2', "#{simid}_net32"]
+      #nic3, wan (outside)
       vb.customize ['modifyvm', :id, '--nic3', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet3', "#{simid}_net10"]
-      #nic4, sync:
-      vb.customize ["modifyvm", :id, "--nic4", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet4", "sync"]
-      vb.customize ["modifyvm", :id, "--nictype4", "virtio"]
-      vb.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
+      vb.customize ['modifyvm', :id, '--intnet3', "#{simid}_net12"]
+      #nic4, lan (inside)
+      vb.customize ['modifyvm', :id, '--nic4', 'intnet']
+      vb.customize ['modifyvm', :id, '--intnet4', "#{simid}_net10"]
+      #nic5, sync:
+      vb.customize ["modifyvm", :id, "--nic5", "intnet"]
+      vb.customize ["modifyvm", :id, "--intnet5", "sync"]
+      vb.customize ["modifyvm", :id, "--nictype5", "virtio"]
+      vb.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     end
   end
   
@@ -47,20 +49,21 @@ Vagrant.configure("2") do |config|
   config.vm.define 'firewall3' do |config|
     config.vm.provider 'virtualbox' do |vb|
       vb.name = "#{simid}_firewall3"
-      #nic1, oob
-      vb.customize ['modifyvm', :id, '--nic1', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net31"]
-      #nic2, wan (outside)
+      #nic1, vagrant, already configured in box
+      #nic2, oob
       vb.customize ['modifyvm', :id, '--nic2', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet2', "#{simid}_net7"]
-      #nic3, lan (inside)
+      vb.customize ['modifyvm', :id, '--intnet2', "#{simid}_net31"]
+      #nic3, wan (outside)
       vb.customize ['modifyvm', :id, '--nic3', 'intnet']
-      vb.customize ['modifyvm', :id, '--intnet3', "#{simid}_net14"]
-      #nic4, sync:
-      vb.customize ["modifyvm", :id, "--nic4", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet4", "sync"]
-      vb.customize ["modifyvm", :id, "--nictype4", "virtio"]
-      vb.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
+      vb.customize ['modifyvm', :id, '--intnet3', "#{simid}_net7"]
+      #nic4, lan (inside)
+      vb.customize ['modifyvm', :id, '--nic4', 'intnet']
+      vb.customize ['modifyvm', :id, '--intnet4', "#{simid}_net14"]
+      #nic5, sync:
+      vb.customize ["modifyvm", :id, "--nic5", "intnet"]
+      vb.customize ["modifyvm", :id, "--intnet5", "sync"]
+      vb.customize ["modifyvm", :id, "--nictype5", "virtio"]
+      vb.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     end
   end
 end
