@@ -20,7 +20,7 @@ opn_user:
       - key: shell
         value: "/usr/local/sbin/opnsense-shell"
       - key: uid
-        value: 1
+        value: 2000
       - key: authorizedkeys
         value: "c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFEU2x4WjJsNkxQcjIyMDByKzVETTBTM0VteGw4ZlA0bUgxM0JBSGtDK1VjeEozQlppV1hhdmVLYTNMb04zWWg1UGlvTms4QVhjSGtROWlqUWR1VWJMTnVUeXJ5czJZZnVGU2RWL1ZLQkJNanFrMUdIUGplVkxxMS9rOVJ0Y1lEVlhLN2gzbm1KQmFxU2JZVVNMa1lSOUF4L1JOK2hXK2N4dlZUbWxzcU9WUmpMTGphb3BHWldVTnlaUk5YQ09ZZkYrVUQrTDFXVGJPaWlod1l0eWVGT3J6eWVyRXdwV1pHV29aczk4c0lXcmZYVklBRTR1N0w2d3o4eStLQUlUdmpIUnNjRWp6YTZaVStNZkZraGcyT2VoRGpMbmkxN1kxK2MxUVZwZUxmMXoyUGdxSmp6SmhXMGJoSnZRSmFFOCsxdzF2aEtsQ2M4WTk4Tnk1bVB1cGI0cEI="
   - name: rudi.broekhuizen
@@ -34,21 +34,21 @@ opn_user:
       - key: shell
         value: "/usr/local/sbin/opnsense-shell"
       - key: uid
-        value: 2
+        value: 2001
       - key: authorizedkeys
         value: "c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFEZVJyVnVvakV4WUJXZ0lWN1VsTGZZTHZ6R3BXOWhTenJqbDlxSjdLYjNFL3gra3EycnVtYTNMWGx2TXpGWG9DS0pNWXZxdlhVRmoyRHp3aCtpSjJiQ3loNWlsV2dUTUx2QXd6UmwxTGRBVjhJYkRWWU5aR0NIQ3pYa3l4TE1BRWR4WE1IVllsNk4vcStSQlArSFFDeVNwd09qdjg2YzVQZ1hvTDRCT254THk1VEFveFNzZnZ4UmNIVDQyVGhZSzFDL1I1UUM4VW9CZHBKMVJCaFFSakJKUE1XcDl6UnlPYWZOd0U3SXRpMTVnS0hwMDRibjlVR3FIUlRBMXVsK1E2WUVGempvcVV4ZTRWQ0hPYk02QlMvRHBEKytUUE1YanpVK2FlSjh0a3hobVlrR1JLWUp4L0tLM3VhS1B2Ky9Fa09EZVB2d1RWc2hpUTh2OXFPWHgwWUo="
 
 opn_group:
   - name: admins
     settings:
-      - member: 1
-      - member: 2
+      - member: 2000
+      - member: 2001
   - name: support
     settings:
       - key: descr
         value: Support
       - key: gid
-        value: 2001
+        value: 2000
       - key: priv
         value: page-all
       - member: 3
