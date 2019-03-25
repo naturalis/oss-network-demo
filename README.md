@@ -27,3 +27,6 @@ ansible -c paramiko -m command -a "uptime" firewall1
 ansible all -c paramiko -m shell -a 'uptime' -l firewall1
 ansible-playbook -c paramiko firewalls.yml -l firewall1
 ```
+
+### VirtualBox commands
+    vboxmanage showvminfo 1552905337_firewall2
