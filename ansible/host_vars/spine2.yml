@@ -18,6 +18,7 @@ nclu:
   - add interface peerlink.4094 ip address 169.254.1.1/30
   - add interface swp1
   - add interface swp45 bridge access 10
+  - add interface swp46 bridge vids 51-53
   - add interface swp47 ip address 172.16.20.11/24
   - add interface swp49-50 post-up 'ip link set $IFACE promisc on' # Only required on VX
   - add loopback lo
