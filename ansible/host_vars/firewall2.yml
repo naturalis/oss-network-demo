@@ -89,7 +89,7 @@ opn_virtualip_specific:
       - key: type
         value: single
       - key: subnet_bits
-        value: 29
+        value: 24
       - key: mode
         value: carp
       - key: interface
