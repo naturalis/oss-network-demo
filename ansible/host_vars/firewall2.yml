@@ -323,7 +323,7 @@ opn_hasync:
   - pfsyncenabled: "on"
   - username: "root"
   - password: "opnsense"
-  - pfsyncinterface: "pfsync"
+  - pfsyncinterface: "sync"
   - pfsyncpeerip: "192.168.254.2"
   - synchronizetoip: "192.168.254.2"
   - synchronizeusers: "on"
