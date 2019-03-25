@@ -387,7 +387,7 @@ opn_gateways:
   - interface: wan
     settings:
       - key: gateway
-        value: 172.16.10.1
+        value: 172.16.10.11
       - key: name
         value: wan_gateway
       - key: defaultgw
