@@ -10,7 +10,7 @@ nclu:
   - add bond peerlink bond slaves swp49,swp50
   - add bond ser-a bond slaves swp1
   - add bridge bridge ports peerlink,ser-a,swp45,swp46
-  - add bridge bridge vids 10,50-52
+  - add bridge bridge vids 10,51-53
   - add bridge bridge vlan-aware
   - add interface eth0 vrf mgmt
   - add interface peerlink.4094 clag peer-ip 169.254.1.2
@@ -18,7 +18,6 @@ nclu:
   - add interface peerlink.4094 ip address 169.254.1.1/30
   - add interface swp1
   - add interface swp45 bridge access 10
-  - add interface swp46 bridge vids 50-52
   - add interface swp47 ip address 172.16.20.11/24
   - add interface swp49-50 post-up 'ip link set $IFACE promisc on' # Only required on VX
   - add loopback lo
@@ -26,12 +25,12 @@ nclu:
   - add vlan 10 ip address-virtual 00:00:5e:00:01:01 172.16.10.11/24
   - add vlan 10 vlan-id 10
   - add vlan 10 vlan-raw-device bridge
-  - add vlan 50 vlan-id 50
-  - add vlan 50 vlan-raw-device bridge
   - add vlan 51 vlan-id 51
   - add vlan 51 vlan-raw-device bridge
   - add vlan 52 vlan-id 52
   - add vlan 52 vlan-raw-device bridge
+  - add vlan 53 vlan-id 53
+  - add vlan 53 vlan-raw-device bridge
   - add vrf mgmt ip address 127.0.0.1/8
   - add vrf mgmt vrf-table auto
 ...
