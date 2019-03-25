@@ -18,7 +18,7 @@ opn_user:
       - key: groupname
         value: admins
       - key: shell
-        value: "/usr/local/sbin/opnsense-shell"
+        value: "/bin/sh"
       - key: uid
         value: 2000
       - key: authorizedkeys
@@ -32,7 +32,7 @@ opn_user:
       - key: groupname
         value: admins
       - key: shell
-        value: "/usr/local/sbin/opnsense-shell"
+        value: "/bin/sh"
       - key: uid
         value: 2001
       - key: authorizedkeys
