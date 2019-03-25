@@ -1,55 +1,105 @@
 ---
 opn_general:
-  - xpath: /opnsense/system
-    settings:
-      - key: hostname
-        value: firewall3
-      - key: domain
-        value: naturalis.nl
-  - xpath: /opnsense/nat
-    settings:
-      - key: outbound/mode
-        value: disabled
+  - system/hostname: "firewall2"
+  - system/domain: "naturalis.nl"
+  - system/webgui/protocol: "https"
+  - system/webgui/nohttpreferercheck: "1"
+  - nat/outbound/mode: "disabled"
 
-opn_vlan_parent_interface: vtnet2
+opn_unset:
+  - system/ipv6allow
+  - trigger_initial_wizard
 
-opn_interfaces:
-  - interface: wan
+opn_interfaces_vlan_parent_interface: vtnet3
+
+opn_interfaces_specific:
+  - interface: oob
     settings:
       - key: if
         value: vtnet1
+      - key: descr
+        value: oob
+      - key: ipaddr
+        value: dhcp
+  - interface: wan
+    settings:
+      - key: if
+        value: vtnet2
+      - key: descr
+        value: wan
       - key: ipaddr
         value: 172.16.10.3
       - key: subnet
         value: 24
       - key: gateway
         value: wan_gateway
-      - key: descr
-        value: wan
   - interface: lan
     settings:
       - key: if
-        value: vtnet2
-      - key: ipaddr
-        value: 192.168.1.3
-      - key: subnet
-        value: 24
+        value: vtnet3
       - key: descr
         value: lan
+      - key: ipaddr
+        value: 192.168.1.2
+      - key: subnet
+        value: 24
   - interface: sync
     settings:
       - key: if
-        value: vtnet3
-      - key: ipaddr
-        value: 192.168.254.2
-      - key: enable
-        value: 1
-      - key: subnet
-        value: 30
+        value: vtnet4
       - key: descr
         value: sync
+      - key: ipaddr
+        value: 192.168.254.2
+      - key: subnet
+        value: 29
+  - interface: opt1
+    vlan: 51
+    settings:
+      - key: ipaddr
+        value: 10.51.0.3
+      - key: descr
+        value: 51_management
+  - interface: opt2
+    vlan: 52
+    settings:
+      - key: ipaddr
+        value: 10.52.0.3
+      - key: descr
+        value: 52_office
+  - interface: opt3
+    vlan: 53
+    settings:
+      - key: ipaddr
+        value: 10.53.0.3
+      - key: descr
+        value: 53_voip
+
+opn_interfaces_all:
+  - key: 'enable'
+    value: "1"
+    interfaces: ['wan', 'lan', 'sync', 'oob', 'opt1', 'opt2', 'opt3']
+  - key: 'subnet'
+    value: "16"
+    interfaces: ['opt1', 'opt2', 'opt3']
 
 opn_filter:
+  - descr: Allow oob
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: oob
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/any
+        value: 1
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
   - descr: Allow sync
     settings:
       - key: interface
@@ -67,21 +117,13 @@ opn_filter:
       - key: destination/any
         value: 1
 
-opn_syslog:
-  - xpath: /opnsense/syslog
+opn_gateways:
+  - interface: wan
     settings:
-      - key: reverse
-        value: 1
-      - key: nentries
-        value: 50
-      - key: remoteserver
-        value: 192.168.200.254
-      - key: sourceip
-        value: oob
-      - key: ipproto
-        value: ipv4
-      - key: logall
-        value: 1
-      - key: enable
+      - key: gateway
+        value: 172.16.10.1
+      - key: name
+        value: wan_gateway
+      - key: defaultgw
         value: 1
 ...
