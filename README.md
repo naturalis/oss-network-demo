@@ -20,6 +20,10 @@ sudo dpkg -i vagrant_2.2.4_x86_64.deb
 vagrant plugin install vagrant-vbguest
 ```
 
+### Install lxml
+    apt install python-pip
+    pip install lxml
+
 
 ### Run ansible commands from oob-mgmt-server
 ```bash
