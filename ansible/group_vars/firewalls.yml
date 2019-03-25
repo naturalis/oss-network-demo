@@ -53,6 +53,10 @@ opn_group:
         value: page-all
       - member: 3
 
+opn_id:
+  - system/nextuid: "2002"
+  - system/nextgid: "2001"
+
 opn_vlans:
   - tag: 51
     settings:
