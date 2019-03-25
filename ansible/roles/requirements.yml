@@ -5,6 +5,7 @@
 
 - name: ansible-cumulus
   src: https://gitlab.com/rudibroekhuizen/ansible-cumulus.git
+  scm: git
 
 - name: ansible-opnsense
   src: https://github.com/naturalis/ansible-opnsense
