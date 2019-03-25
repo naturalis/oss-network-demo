@@ -1,6 +1,6 @@
 ---
 opn_general:
-  - system/hostname: "firewall2"
+  - system/hostname: "firewall3"
   - system/domain: "naturalis.nl"
   - system/webgui/protocol: "https"
   - system/webgui/nohttpreferercheck: "1"
