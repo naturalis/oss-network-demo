@@ -117,13 +117,13 @@ opn_filter:
       - key: destination/any
         value: 1
 
-opn_gateways:
-  - interface: wan
-    settings:
-      - key: gateway
-        value: 172.16.10.1
-      - key: name
-        value: wan_gateway
-      - key: defaultgw
-        value: 1
+#opn_gateways:
+#  - interface: wan
+#    settings:
+#      - key: gateway
+#        value: 172.16.10.11
+#      - key: name
+#        value: wan_gateway
+#      - key: defaultgw
+#        value: 1
 ...
