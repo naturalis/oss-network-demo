@@ -3,15 +3,13 @@ opn_general:
   - system/hostname: "firewall1"
   - system/domain: "naturalis.nl"
   - system/webgui/protocol: "https"
-#  - system/webgui/port: "8888"
   - system/webgui/nohttpreferercheck: "1"
-#  - nat/outbound/mode: "disabled"
 
 opn_unset:
   - system/ipv6allow
   - trigger_initial_wizard
 
-opn_vlan_parent_interface: vtnet2
+opn_vlan_parent_interface: vtnet3
 
 opn_interfaces:
   - interface: lan
