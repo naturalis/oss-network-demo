@@ -9,33 +9,38 @@ opn_unset:
   - system/ipv6allow
   - trigger_initial_wizard
 
-opn_interfaces:
+opn_interfaces_specific:
+  - interface: oob
+    settings:
+      - key: if
+        value: vtnet1
+      - key: descr
+        value: oob
+      - key: ipaddr
+        value: dhcp
   - interface: lan
     settings:
       - key: if
-        value: vtnet2
+        value: vtnet3
+      - key: descr
+        value: lan
       - key: ipaddr
         value: 172.16.1.1
       - key: subnet
         value: 24
-      - key: descr
-        value: lan
+        
+opn_interfaces_all:
+  - key: 'enable'
+    value: "1"
+    interfaces: ['oob', 'wan', 'lan']
 
-opn_syslog:
-  - xpath: /opnsense/syslog
-    settings:
-      - key: reverse
-        value: 1
-      - key: nentries
-        value: 50
-      - key: remoteserver
-        value: 192.168.200.254
-      - key: sourceip
-        value: oob
-      - key: ipproto
-        value: ipv4
-      - key: logall
-        value: 1
-      - key: enable
-        value: 1
+#opn_gateways:
+#  - interface: wan
+#    settings:
+#      - key: gateway
+#        value: 172.16.10.11
+#      - key: name
+#        value: wan_gateway
+#      - key: defaultgw
+#        value: 1
 ...
