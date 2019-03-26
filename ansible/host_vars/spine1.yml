@@ -5,10 +5,10 @@ nclu:
   - add routing service integrated-vtysh-config
   - add routing log syslog informational
   - add routing route 0.0.0.0/0 172.16.1.1
-  - add routing route 10.50.0.0/16 172.16.20.11
+  - add routing route 10.51.0.0/16 172.16.20.11
   - add routing route 172.16.10.0/24 172.16.20.11
   - add routing route 172.16.10.0/24 172.16.30.11
-  - add routing route 10.50.0.0/16 172.16.30.11
+  - add routing route 10.51.0.0/16 172.16.30.11
   - add dns nameserver ipv4 192.168.200.254 vrf mgmt
   - add bridge bridge vlan-aware
   - add interface eth0 vrf mgmt
