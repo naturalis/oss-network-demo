@@ -9,7 +9,7 @@ nclu:
   - add bond downlink clag id 2
   - add bond uplink clag id 1
   - add bridge bridge ports downlink,peerlink,uplink
-  - add bridge bridge vids 50-52
+  - add bridge bridge vids 51-53
   - add bridge bridge vlan-aware
   - add interface eth0 vrf mgmt
   - add interface peerlink.4094 clag peer-ip 169.254.1.1
