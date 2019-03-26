@@ -27,6 +27,8 @@ vagrant plugin install vagrant-vbguest
 
 ### Run ansible commands from oob-mgmt-server
 
+    ansible all -m shell -a 'sudo ifdown vagrant' -l spine*
+
     ansible -c paramiko -m command -a "uptime" firewall1
     ansible all -c paramiko -m shell -a 'uptime' -l firewall1
 
