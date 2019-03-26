@@ -9,6 +9,7 @@ nclu:
   - add dns nameserver ipv4 192.168.200.254 vrf mgmt
   - add bond peerlink bond slaves swp49,swp50
   - add bond ser-a bond slaves swp1
+  - add bond ser-a clag id 2
   - add bridge bridge ports peerlink,ser-a,swp45,swp46
   - add bridge bridge vids 10,51-53
   - add bridge bridge vlan-aware
