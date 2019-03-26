@@ -33,6 +33,15 @@ vagrant plugin install vagrant-vbguest
     # firewall1
     ansible-playbook -c paramiko firewalls.yml -l firewall1 --skip-tags vlans
 
+    # firewall2, firewall3
+    ansible-playbook -c paramiko firewalls.yml -l firewall2,firewall3
+
+    # cumulus spines
+    ansible-playbook switches.yml -l spine*
+
+    # cumulus leafs
+    ansible-playbook switches.yml -l leaf*
+
 
 ### VirtualBox commands
     vboxmanage showvminfo 1552905337_firewall2
