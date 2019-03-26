@@ -358,6 +358,8 @@ opn_dhcpd:
         value: 10.51.0.1
       - key: failover_peerip
         value: 10.51.0.3
+      - key: dnsserver
+        value: 8.8.8.8
   - if: opt2
     settings:
       - key: enable
@@ -370,6 +372,8 @@ opn_dhcpd:
         value: 10.52.0.1
       - key: failover_peerip
         value: 10.52.0.3
+      - key: dnsserver
+        value: 8.8.8.8
   - if: opt3
     settings:
       - key: enable
@@ -382,6 +386,8 @@ opn_dhcpd:
         value: 10.53.0.1
       - key: failover_peerip
         value: 10.53.0.3
+      - key: dnsserver
+        value: 8.8.8.8
 
 opn_gateways:
   - interface: wan
