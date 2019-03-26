@@ -11,14 +11,14 @@ nclu:
   - add bond downlink clag id 2
   - add bond uplink clag id 1
   - add bridge bridge ports swp1,downlink,peerlink,uplink
-  - add bridge bridge vids 50-52
+  - add bridge bridge vids 51-53
   - add bridge bridge vlan-aware
   - add interface eth0 vrf mgmt
   - add interface peerlink.4094 clag peer-ip 169.254.1.2
   - add interface peerlink.4094 clag priority 4096
   - add interface peerlink.4094 clag sys-mac 44:38:39:FF:11:12
   - add interface peerlink.4094 ip address 169.254.1.1/30
-  - add interface swp1 bridge access 50
+  - add interface swp1 bridge access 51
   - add interface swp49-50,52
   - add loopback lo
   - add vrf mgmt ip address 127.0.0.1/8
