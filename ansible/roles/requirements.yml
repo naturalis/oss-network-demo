@@ -4,8 +4,7 @@
 # Install with: ansible-galaxy install -r requirements.yml --roles-path .
 
 - name: ansible-cumulus
-  src: https://gitlab.com/rudibroekhuizen/ansible-cumulus.git
-  scm: git
+  src: https://github.com/naturalis/ansible-cumulus
 
 - name: ansible-opnsense
   src: https://github.com/naturalis/ansible-opnsense
