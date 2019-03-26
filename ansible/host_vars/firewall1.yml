@@ -34,13 +34,11 @@ opn_interfaces_all:
     value: "1"
     interfaces: ['oob', 'wan', 'lan']
 
-#opn_gateways:
-#  - interface: wan
-#    settings:
-#      - key: gateway
-#        value: 172.16.10.11
-#      - key: name
-#        value: wan_gateway
-#      - key: defaultgw
-#        value: 1
+opn_gateways:
+  - interface: lan
+    settings:
+      - key: gateway
+        value: 172.16.1.2
+      - key: name
+        value: lan_routing
 ...
