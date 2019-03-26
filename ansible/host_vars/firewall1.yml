@@ -40,5 +40,5 @@ opn_gateways:
       - key: gateway
         value: 172.16.1.2
       - key: name
-        value: lan_routing
+        value: internal_route
 ...
