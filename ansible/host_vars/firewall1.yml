@@ -44,7 +44,12 @@ opn_gateways:
 
 opn_staticroutes:
   - descr: '10.51.0.0/16'
+    uuid: 20a9db7a-ce9b-4e87-bb0d-d0c225b43519
     settings:
       - key: network
         value: '10.51.0.0/16'
+      - key: gateway
+        value: internal_route
+      - key: disabled
+        value: 0
 ...
