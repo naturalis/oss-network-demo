@@ -63,7 +63,7 @@ opn_staticroutes:
         value: 0
         
 opn_nat_settings:
-  - system/nat/outbound/mode: "advanced"
+  - nat/outbound/mode: "advanced"
   
 opn_nat:
   - descr: outbound NAT
