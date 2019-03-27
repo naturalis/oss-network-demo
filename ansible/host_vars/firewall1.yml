@@ -60,5 +60,8 @@ opn_staticroutes:
       - key: gateway
         value: internal_route
       - key: disabled
-        value: 0        
+        value: 0
+        
+opn_nat_settings:
+  - system/nat/outbound/mode: "advanced"
 ...
