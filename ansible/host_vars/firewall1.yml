@@ -41,4 +41,10 @@ opn_gateways:
         value: 172.16.1.2
       - key: name
         value: internal_route
+
+opn_staticroutes:
+  - descr: '10.51.0.0/16'
+    settings:
+      - key: network
+        value: '10.51.0.0/16'
 ...
