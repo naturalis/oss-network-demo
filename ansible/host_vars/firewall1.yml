@@ -43,13 +43,22 @@ opn_gateways:
         value: internal_route
 
 opn_staticroutes:
-  - descr: '10.51.0.0/16'
+  - descr: '10.0.0.0/8'
     uuid: 20a9db7a-ce9b-4e87-bb0d-d0c225b43519
+    settings:
+      - key: network
+        value: '10.0.0.0/8'
+      - key: gateway
+        value: internal_route
+      - key: disabled
+        value: 0
+  - descr: '172.16.0.0/16'
+    uuid: 953277c1-2cf8-4671-ac1b-d175cf80ea4f
     settings:
       - key: network
         value: '10.51.0.0/16'
       - key: gateway
         value: internal_route
       - key: disabled
-        value: 0
+        value: 0        
 ...
