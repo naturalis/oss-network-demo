@@ -56,7 +56,7 @@ opn_staticroutes:
     uuid: 953277c1-2cf8-4671-ac1b-d175cf80ea4f
     settings:
       - key: network
-        value: '10.51.0.0/16'
+        value: '172.16.0.0/16'
       - key: gateway
         value: internal_route
       - key: disabled
