@@ -53,10 +53,8 @@ opn_filter:
         value: 1
 
 opn_gateways:
-  - descr: 'Interface lan internal route'
+  - interface: lan
     settings:
-      - key: interface
-        value: lan
       - key: gateway
         value: 172.16.1.2
       - key: name
