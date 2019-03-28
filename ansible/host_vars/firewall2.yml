@@ -390,12 +390,16 @@ opn_dhcpd:
         value: 8.8.8.8
 
 opn_gateways:
-  - interface: wan
+  - descr: 'Interface wan gateway'
     settings:
+      - key: interface
+        value: wan
       - key: gateway
-        value: 172.16.10.11
+        value: 172.16.1.2
       - key: name
         value: wan_gateway
+      - key: weight
+        value: 1
       - key: defaultgw
         value: 1
 ...
