@@ -34,6 +34,24 @@ opn_interfaces_all:
     value: "1"
     interfaces: ['oob', 'wan', 'lan']
 
+opn_filter:
+  - descr: 'Allow internal VLANs to any'
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: lan
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/address
+        value: '10.0.0.0/8'
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
+
 opn_gateways:
   - descr: 'Interface lan internal route'
     settings:
