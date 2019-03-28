@@ -63,6 +63,8 @@ opn_gateways:
         value: internal_route
       - key: weight
         value: 1
+      - key: ipprotocol
+        value: inet
 
 opn_staticroutes:
   - descr: '10.0.0.0/8'
