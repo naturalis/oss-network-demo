@@ -216,39 +216,21 @@ opn_filter:
         value: 1
       - key: destination/any
         value: 1
-  - descr: Allow access to gateway vlan 51
+  - descr: Allow management
     settings:
-      - key: type
-        value: pass
       - key: interface
         value: opt1
+      - key: log
+        value: 1
+      - key: type
+        value: pass
       - key: ipprotocol
         value: inet
       - key: statetype
         value: keep state
-      - key: source/network
-        value: opt1
-      - key: destination/address
-        value: gateway_51
-      - key: log
+      - key: source/any
         value: 1
-  - descr: Allow access to public networks from vlan 51
-    settings:
-      - key: type
-        value: pass
-      - key: interface
-        value: opt1
-      - key: ipprotocol
-        value: inet
-      - key: statetype
-        value: keep state
-      - key: source/network
-        value: opt1
-      - key: destination/address
-        value: private
-      - key: destination/not
-        value: 1
-      - key: log
+      - key: destination/any
         value: 1
   - descr: Allow access to gateway vlan 52
     settings:
