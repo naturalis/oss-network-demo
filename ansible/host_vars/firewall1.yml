@@ -35,12 +35,16 @@ opn_interfaces_all:
     interfaces: ['oob', 'wan', 'lan']
 
 opn_gateways:
-  - interface: lan
+  - descr: 'Interface lan internal route'
     settings:
+      - key: interface
+        value: lan
       - key: gateway
         value: 172.16.1.2
       - key: name
         value: internal_route
+      - key: weight
+        value: 1
 
 opn_staticroutes:
   - descr: '10.0.0.0/8'
