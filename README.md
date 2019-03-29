@@ -30,16 +30,19 @@ vagrant plugin install vagrant-vbguest
     ansible -c paramiko -m command -a "uptime" firewall1
     ansible all -c paramiko -m shell -a 'uptime' -l firewall1
 
-    # firewall1
+    # Delete default route learned by virtualbox dhcp:
+    ansible all -m shell -a 'sudo ip route del default dev vagrant' -l spine*
+
+    # Deploy firewall1:
     ansible-playbook -c paramiko firewalls.yml -l firewall1 --skip-tags vlans
 
-    # firewall2, firewall3
+    # Deploy firewall2 and firewall3:
     ansible-playbook -c paramiko firewalls.yml -l firewall2,firewall3
 
-    # cumulus spines
+    # Deploy Cumulus spines:
     ansible-playbook switches.yml -l spine*
 
-    # cumulus leafs
+    # Deploy Cumulus leafs:
     ansible-playbook switches.yml -l leaf*
 
 
