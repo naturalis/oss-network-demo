@@ -26,16 +26,13 @@ vagrant plugin install vagrant-vbguest
     # Delete default route learned by virtualbox dhcp:
     ansible all -m shell -a 'sudo ip route del default dev vagrant' -l spine*
 
-    # Deploy firewall1:
-    ansible-playbook -c paramiko firewalls.yml -l firewall1 --skip-tags vlans
+    # Deploy firewalls:
+    ansible-playbook -c paramiko firewalls.yml
 
-    # Deploy firewall2 and firewall3:
-    ansible-playbook -c paramiko firewalls.yml -l firewall2,firewall3
-
-    # Deploy Cumulus spines:
+    # Deploy spines:
     ansible-playbook switches.yml -l spine*
 
-    # Deploy Cumulus leafs:
+    # Deploy leafs:
     ansible-playbook switches.yml -l leaf*
 
 
