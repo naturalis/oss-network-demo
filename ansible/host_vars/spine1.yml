@@ -17,5 +17,5 @@ nclu:
   - add interface swp47 ip address 172.16.1.2/24
   - add loopback lo
   - add vrf mgmt ip address 127.0.0.1/8
-  - add vrf mgmt vrf-table auto
+  - add vrf mgmt,vagrantvrf vrf-table auto
 ...
