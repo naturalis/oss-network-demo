@@ -1,6 +1,6 @@
 graph demo {
  "oob-mgmt-switch" [function="oob-switch" config="./helper_scripts/oob_switch_config.sh" mgmt_ip="192.168.200.100"]
- "oob-mgmt-server" [function="oob-server" os="geerlingguy/ubuntu1804" mgmt_ip="192.168.200.254/24"]
+ "oob-mgmt-server" [function="oob-server" mgmt_ip="192.168.200.254/24"]
 
  "firewall1" [function="fake"]
  "firewall2" [function="fake"]
