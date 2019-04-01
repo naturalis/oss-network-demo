@@ -2,16 +2,14 @@
 
 Try an open source software based network, using OPNsense and Cumulus.
 
-### Update Ansible on oob-mgmt-server
+### Update Ansible on oob-mgmt-server, install lxml
 
 ```bash
-vagrant ssh oob-mgmt-server
-
-sudo apt-add-repository ppa:ansible/ansible
-sudo apt update
-sudo apt install ansible
+yes | sudo apt-add-repository ppa:ansible/ansible && \
+sudo apt update && \
+sudo apt install -y ansible && \
+sudo pip install lxml
 ```
-
 
 ### Install vagrant-vbguest plugin
 ```bash
@@ -19,10 +17,6 @@ wget -c https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
 sudo dpkg -i vagrant_2.2.4_x86_64.deb
 vagrant plugin install vagrant-vbguest
 ```
-
-### Install lxml on oob-mgmt-server
-    sudo pip install lxml
-
 
 ### Run ansible commands from oob-mgmt-server
 
