@@ -29,11 +29,8 @@ vagrant plugin install vagrant-vbguest
     # Deploy firewalls:
     ansible-playbook -c paramiko firewalls.yml
 
-    # Deploy spines:
-    ansible-playbook switches.yml -l spine*
-
-    # Deploy leafs:
-    ansible-playbook switches.yml -l leaf*
+    # Deploy switches:
+    ansible-playbook switches.yml
 
 
 ### VirtualBox commands
