@@ -90,7 +90,7 @@ Vagrant.configure("2") do |config|
 
   end
 
-
+  config.vm.auto_update = false
 
 
   ##### DEFINE VM for oob-mgmt-server #####
