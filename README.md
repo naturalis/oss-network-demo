@@ -36,6 +36,10 @@ sudo pip install lxml
 ### Run ansible commands from oob-mgmt-server
 
     oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    sudo -s
+    su cumulus
+    git clone https://github.com/naturalis/oss-network-demo/
+    cd oss-network-demo/ansible
 
     ansible -c paramiko -m command -a "uptime" firewall1
     ansible all -c paramiko -m shell -a 'uptime' -l firewall1
