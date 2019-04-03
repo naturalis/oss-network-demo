@@ -18,6 +18,20 @@ sudo dpkg -i vagrant_2.2.4_x86_64.deb
 vagrant plugin install vagrant-vbguest
 ```
 
+### Run vagrant up from host
+    # Start oob-mgmt-switch and oob-mgmt-server:
+    oss-network-demo/topology_converter> vagrant up oob-mgmt-switch oob-mgmt-server
+
+    # Start switches:
+    oss-network-demo/topology_converter> vagrant up
+
+    # Start firewalls:
+    oss-network-demo/firewalls> vagrant up
+
+    # Start workstations:
+    oss-network-demo/workstations> vagrant up
+
+
 ### Run ansible commands from oob-mgmt-server
 
     ansible -c paramiko -m command -a "uptime" firewall1
