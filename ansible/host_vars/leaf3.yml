@@ -1,0 +1,9 @@
+---
+nclu:
+  - add snmp-server listening-address localhost
+  - add routing log syslog informational
+  - add dns nameserver ipv4 192.168.200.254 vrf mgmt
+  - add loopback lo
+  - add vrf mgmt ip address 127.0.0.1/8
+  - add vrf mgmt,vagrantvrf vrf-table auto
+...

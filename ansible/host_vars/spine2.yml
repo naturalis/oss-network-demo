@@ -34,5 +34,5 @@ nclu:
   - add vlan 53 vlan-id 53
   - add vlan 53 vlan-raw-device bridge
   - add vrf mgmt ip address 127.0.0.1/8
-  - add vrf mgmt vrf-table auto
+  - add vrf mgmt,vagrantvrf vrf-table auto
 ...
