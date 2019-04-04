@@ -1,0 +1,80 @@
+---
+ansible_user: root
+ansible_ssh_pass: opnsense
+ansible_become_method: sudo
+ansible_python_interpreter: '/usr/bin/env python2.7'
+dnsserver:
+  - "8.8.8.8"
+  - "8.8.4.4"
+
+opn_user:
+  - name: foppe.pieters
+    settings:
+      - key: descr
+        value: "Foppe Pieters"
+      - key: scope
+        value: user
+      - key: groupname
+        value: admins
+      - key: shell
+        value: "/bin/sh"
+      - key: uid
+        value: 2000
+      - key: authorizedkeys
+        value: "c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFEU2x4WjJsNkxQcjIyMDByKzVETTBTM0VteGw4ZlA0bUgxM0JBSGtDK1VjeEozQlppV1hhdmVLYTNMb04zWWg1UGlvTms4QVhjSGtROWlqUWR1VWJMTnVUeXJ5czJZZnVGU2RWL1ZLQkJNanFrMUdIUGplVkxxMS9rOVJ0Y1lEVlhLN2gzbm1KQmFxU2JZVVNMa1lSOUF4L1JOK2hXK2N4dlZUbWxzcU9WUmpMTGphb3BHWldVTnlaUk5YQ09ZZkYrVUQrTDFXVGJPaWlod1l0eWVGT3J6eWVyRXdwV1pHV29aczk4c0lXcmZYVklBRTR1N0w2d3o4eStLQUlUdmpIUnNjRWp6YTZaVStNZkZraGcyT2VoRGpMbmkxN1kxK2MxUVZwZUxmMXoyUGdxSmp6SmhXMGJoSnZRSmFFOCsxdzF2aEtsQ2M4WTk4Tnk1bVB1cGI0cEI="
+  - name: rudi.broekhuizen
+    settings:
+      - key: descr
+        value: "Rudi Broekhuizen"
+      - key: scope
+        value: user
+      - key: groupname
+        value: admins
+      - key: shell
+        value: "/bin/sh"
+      - key: uid
+        value: 2001
+      - key: authorizedkeys
+        value: "c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFEZVJyVnVvakV4WUJXZ0lWN1VsTGZZTHZ6R3BXOWhTenJqbDlxSjdLYjNFL3gra3EycnVtYTNMWGx2TXpGWG9DS0pNWXZxdlhVRmoyRHp3aCtpSjJiQ3loNWlsV2dUTUx2QXd6UmwxTGRBVjhJYkRWWU5aR0NIQ3pYa3l4TE1BRWR4WE1IVllsNk4vcStSQlArSFFDeVNwd09qdjg2YzVQZ1hvTDRCT254THk1VEFveFNzZnZ4UmNIVDQyVGhZSzFDL1I1UUM4VW9CZHBKMVJCaFFSakJKUE1XcDl6UnlPYWZOd0U3SXRpMTVnS0hwMDRibjlVR3FIUlRBMXVsK1E2WUVGempvcVV4ZTRWQ0hPYk02QlMvRHBEKytUUE1YanpVK2FlSjh0a3hobVlrR1JLWUp4L0tLM3VhS1B2Ky9Fa09EZVB2d1RWc2hpUTh2OXFPWHgwWUo="
+
+opn_group:
+  - name: admins
+    settings:
+      - member: 2000
+      - member: 2001
+  - name: support
+    settings:
+      - key: descr
+        value: Support
+      - key: gid
+        value: 2000
+      - key: priv
+        value: page-all
+      - member: 3
+
+opn_nextid:
+  - system/nextuid: "2002"
+  - system/nextgid: "2001"
+
+opn_vlans:
+  - tag: 51
+    settings:
+      - key: descr
+        value: "51_management"
+  - tag: 52
+    settings:
+      - key: descr
+        value: "52_office"
+  - tag: 53
+    settings:
+      - key: descr
+        value: "53_voip"
+
+opn_syslog:
+  - remoteserver: "192.168.200.254"
+  - sourceip: "oob"
+  - enable: "1"
+  - reverse: "1"
+  - nentries: "50"
+  - ipproto: "ipv4"
+  - logall: "1"

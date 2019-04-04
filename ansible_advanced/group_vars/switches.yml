@@ -1,0 +1,45 @@
+---
+mgmt_user: cumulus
+cl_oob_server: 192.168.200.254
+cl_apt_mirror: repo3.cumulusnetworks.com/repo
+cumulus_pass: CumulusLinux!
+ssh_pass_auth: 'yes'
+mgmt_gateway: 192.168.200.254
+node_exporter_version: 0.16.0
+rsyslog_server: 192.168.200.254
+rsyslog_port: 514
+rsyslog_proto: tcp
+rsyslog_interface: vlan51
+snmp_ro_community: public
+snmp_location: Leiden
+snmp_contact: infra@naturalis.nl
+snmp_allowed_hosts:
+  - 192.168.200.254
+ntp:
+  servers:
+    - '0.cumulusnetworks.pool.ntp.org'
+    - '1.cumulusnetworks.pool.ntp.org'
+    - '2.cumulusnetworks.pool.ntp.org'
+    - '3.cumulusnetworks.pool.ntp.org'
+  interfaces:
+    - swp47
+    - vlan51
+timezone: 'Etc/UTC'
+ib_mgmt: 51
+fw_carp_address: 172.16.10.1
+ptm:
+  - '"spine-1":"swp47" -- "firewall1"'
+  - '"spine-1":"swp1" -- "spine2":"swp47"'
+  - '"spine-1":"swp2" -- "spine3":"swp47"'
+  - '"spine-2":"swp49" -- "spine3":"swp49"'
+  - '"spine-2":"swp50" -- "spine3":"swp50"'
+  - '"spine-2":"swp1" -- "leaf1":"swp52"'
+  - '"spine-2":"swp45" -- "firewall2"'
+  - '"spine-2":"swp46" -- "firewall2"'
+  - '"spine-3":"swp1" -- "leaf2":"swp52"'
+  - '"spine-3":"swp45" -- "firewall3"'
+  - '"spine-3":"swp46" -- "firewall3"'
+  - '"leaf-1":"swp50" -- "leaf-2":"swp50"'
+  - '"leaf-3":"swp50" -- "leaf-4":"swp50"'
+  - '"leaf-1":"swp49" -- "leaf-4":"swp52"'
+  - '"leaf-2":"swp49" -- "leaf-3":"swp52"'

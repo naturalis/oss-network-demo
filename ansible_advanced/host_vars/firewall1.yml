@@ -1,0 +1,105 @@
+---
+opn_general:
+  - system/hostname: "firewall1"
+  - system/domain: "naturalis.nl"
+  - system/webgui/protocol: "https"
+  - system/webgui/nohttpreferercheck: "1"
+
+opn_unset:
+  - system/ipv6allow
+  - trigger_initial_wizard
+
+opn_interfaces_specific:
+  - interface: oob
+    settings:
+      - key: if
+        value: vtnet1
+      - key: descr
+        value: oob
+      - key: ipaddr
+        value: dhcp
+  - interface: lan
+    settings:
+      - key: if
+        value: vtnet3
+      - key: descr
+        value: lan
+      - key: ipaddr
+        value: 172.16.1.1
+      - key: subnet
+        value: 24
+        
+opn_interfaces_all:
+  - key: 'enable'
+    value: "1"
+    interfaces: ['oob', 'wan', 'lan']
+
+opn_filter:
+  - descr: 'Allow internal VLANs to any'
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: lan
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/address
+        value: '10.0.0.0/8'
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
+
+opn_gateways:
+  - interface: lan
+    settings:
+      - key: gateway
+        value: 172.16.1.2
+      - key: name
+        value: internal_route
+      - key: weight
+        value: 1
+      - key: ipprotocol
+        value: inet
+
+opn_staticroutes:
+  - descr: '10.0.0.0/8'
+    uuid: 20a9db7a-ce9b-4e87-bb0d-d0c225b43519
+    settings:
+      - key: network
+        value: '10.0.0.0/8'
+      - key: gateway
+        value: internal_route
+      - key: disabled
+        value: 0
+  - descr: '172.16.0.0/16'
+    uuid: 953277c1-2cf8-4671-ac1b-d175cf80ea4f
+    settings:
+      - key: network
+        value: '172.16.0.0/16'
+      - key: gateway
+        value: internal_route
+      - key: disabled
+        value: 0
+        
+opn_nat_settings:
+  - nat/outbound/mode: "advanced"
+  
+opn_nat:
+  - descr: outbound NAT
+    settings:
+      - key: interface
+        value: wan
+      - key: targetip_subnet
+        value: 0
+      - key: ipprotocol
+        value: inet
+      - key: source/network
+        value: any
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
+...

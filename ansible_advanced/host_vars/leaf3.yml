@@ -1,0 +1,18 @@
+---
+lo: 127.0.0.1/8
+mlag:
+  primary: false
+  members:
+  - swp50
+  address: 169.254.1.2/30
+  peer-ip: 169.254.1.1
+  sysmac: 44:38:39:FF:11:10
+aggregation_ports:
+  uplink:
+    mlag: true
+    mlag-id: 1
+    members:
+    - swp52
+    trunk: true
+access_ports:
+...
