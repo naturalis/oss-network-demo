@@ -44,9 +44,6 @@ sudo pip install lxml
     ansible -c paramiko -m command -a "uptime" firewall1
     ansible all -c paramiko -m shell -a 'uptime' -l firewall1
 
-    # Delete default route learned by virtualbox dhcp:
-    ansible all -m shell -a 'sudo ip route del default dev vagrant' -l spine*
-
     # Deploy firewalls:
     ansible-playbook -c paramiko firewalls.yml
 
