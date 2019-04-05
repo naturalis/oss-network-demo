@@ -35,6 +35,11 @@ sudo apt install -y ansible && \
 sudo pip install lxml
 ```
 
+### Install Ansible roles on oob-mgmt-server
+    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    
+    oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
+
 ### Run ansible commands from oob-mgmt-server
 
     oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
