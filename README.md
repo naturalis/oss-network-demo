@@ -27,6 +27,8 @@ vagrant plugin install vagrant-vbguest
 ### Update Ansible on guest oob-mgmt-server, install lxml
 
 ```bash
+oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+
 yes | sudo apt-add-repository ppa:ansible/ansible && \
 sudo apt update && \
 sudo apt install -y ansible && \
