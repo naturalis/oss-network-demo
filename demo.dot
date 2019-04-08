@@ -43,5 +43,11 @@ graph demo {
    "leaf2":"swp49" -- "leaf3":"swp52"
    
    "workstation1":"swp1" -- "leaf1":"swp1"
-   "workstation2":"swp1" -- "leaf3":"swp1"
+   "workstation2":"swp1" -- "leaf2":"swp1"
+   "workstation3":"swp1" -- "leaf3":"swp1"
+   "workstation4":"swp1" -- "leaf4":"swp1"
+   "workstation5":"swp1" -- "leaf1":"swp2"
+   "workstation6":"swp1" -- "leaf2":"swp2"
+   "workstation7":"swp1" -- "leaf3":"swp2"
+   "workstation8":"swp1" -- "leaf4":"swp2"
 }
