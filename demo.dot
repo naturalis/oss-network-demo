@@ -7,7 +7,13 @@ graph demo {
  "firewall3" [function="fake"]
  "workstation1" [function="fake"]
  "workstation2" [function="fake"]
-
+ "workstation3" [function="fake"]
+ "workstation4" [function="fake"]
+ "workstation5" [function="fake"]
+ "workstation6" [function="fake"]
+ "workstation7" [function="fake"]
+ "workstation8" [function="fake"]
+ 
  "spine1" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.1"]
  "spine2" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.2"]
  "spine3" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.3"]
