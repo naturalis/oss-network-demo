@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
       #nic1, vagrant, already configured in box
       #nic2, oob
       vb.customize ["modifyvm", :id, "--nic2", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet2", "#{simid}_net46:"]
+      vb.customize ["modifyvm", :id, "--intnet2", "#{simid}_net46"]
       vb.customize ["modifyvm", :id, "--macaddress2", "080027D6D881"]
       #nic3, wan (outside)
       vb.customize ["modifyvm", :id, "--nic3", "intnet"]
