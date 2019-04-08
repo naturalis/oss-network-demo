@@ -1,0 +1,42 @@
+---
+lo: 127.0.0.1/8
+rsyslog_interface: swp47
+snmp_listen: 145.136.246.202
+ospf:
+  swp47:
+    router-address: 172.16.30.11/24
+    network: '172.16.30.0/24'
+  vlan250:
+    vlan: 250
+    router-address: 172.16.250.2/24
+    network: '172.16.250.0/24'
+mlag:
+  primary: false
+  members:
+  - swp49
+  - swp50
+  address: 169.254.1.2/30
+  peer-ip: 169.254.1.1
+  backup-ip: 192.168.200.2
+  sysmac: 44:38:39:FF:FA:01
+svi:
+  10:
+    ipv4-virtual: 172.16.10.11/24
+    ipv4: 172.16.10.13/24
+aggregation_ports:
+  ser-a:
+    mlag: true
+    mlag-id: 2
+    members:
+    - swp1
+    trunk: true
+  swp45:
+    trunk: false
+    vlan: 10
+  fw-inside:
+    mlag: true
+    mlag-id: 46
+    members:
+    - swp46
+    trunk: true
+...

@@ -1,0 +1,35 @@
+# Role requirements
+
+# Cumulus
+- src: https://github.com/naturalis/ansible-cumulus-common
+  version: master
+  name: cumulus-common
+- src: https://github.com/naturalis/ansible-cumulus-interfaces
+  version: master
+  name: cumulus-interfaces
+- src: https://github.com/naturalis/ansible-cumulus-license
+  version: master
+  name: cumulus-license
+- src: https://github.com/naturalis/ansible-cumulus-repo
+  version: master
+  name: cumulus-repo
+- src: https://github.com/naturalis/ansible-cumulus-metrics
+  version: master
+  name: cumulus-metrics
+- src: https://github.com/naturalis/ansible-cumulus-ptm
+  version: master
+  name: cumulus-ptm
+- src: https://github.com/naturalis/ansible-cumulus-users
+  version: master
+  name: cumulus-users
+- src: https://github.com/naturalis/ansible-cumulus-upgrade
+  version: master
+  name: cumulus-upgrade
+- src: https://github.com/naturalis/ansible-cumulus-onie
+  version: master
+  name: cumulus-onie
+
+# OPNsense
+- src: https://github.com/naturalis/ansible-opnsense
+  version: master
+  name: ansible-opnsense
