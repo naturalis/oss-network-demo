@@ -17,9 +17,9 @@ graph demo {
  "leaf3" [function="leaf" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.30"]
  "leaf4" [function="leaf" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.40"]
 
-   "spine1":"swp47" -- "firewall1":"swp1"
-   "spine1":"swp1" -- "spine2":"swp47"
-   "spine1":"swp2" -- "spine3":"swp47"
+   "spine1":"swp52" -- "firewall1":"swp1"
+   "spine1":"swp1" -- "spine2":"swp52"
+   "spine1":"swp2" -- "spine3":"swp52"
    
    "spine2":"swp45" -- "firewall2":"swp2"
    "spine2":"swp46" -- "firewall2":"swp3"
