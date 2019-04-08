@@ -32,4 +32,4 @@
 # OPNsense
 - src: https://github.com/naturalis/ansible-opnsense
   version: master
-  name: opnsense
+  name: ansible-opnsense
