@@ -8,17 +8,17 @@ admin_users:
   public_key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDSlxZ2l6LPr2200r+5DM0S3Emxl8fP4mH13BAHkC+UcxJ3BZiWXaveKa3LoN3Yh5PioNk8AXcHkQ9ijQduUbLNuTyrys2YfuFSdV/VKBBMjqk1GHPjeVLq1/k9RtcYDVXK7h3nmJBaqSbYUSLkYR9Ax/RN+hW+cxvVTmlsqOVRjLLjaopGZWUNyZRNXCOYfF+UD+L1WTbOiihwYtyeFOrzyerEwpWZGWoZs98sIWrfXVIAE4u7L6wz8y+KAITvjHRscEjza6ZU+MfFkhg2OehDjLni17Y1+c1QVpeLf1z2PgqJjzJhW0bhJvQJaE8+1w1vhKlCc8Y98Ny5mPupb4pB
 vlans:
   10:
-    name: 10
-    subnet: 172.16.10.0
+    name: vlan10
+    subnet: 172.16.10.0/24
   51:
-    name: 51
-    subnet: 172.16.51.0
+    name: vlan51
+    subnet: 172.16.51.0/24
   52:
-    name: 52
-    subnet: 172.16.52.0
+    name: vlan52
+    subnet: 172.16.52.0/24
   53:
-    name: 53
-    subnet: 172.16.53.0
+    name: vlan53
+    subnet: 172.16.53.0/24
 default_port_config: test
 port_configs:
   test:
@@ -26,9 +26,9 @@ port_configs:
     tagged:
     - 52
     - 53
-  51:
+  vlan51:
     untagged: 51
-  52:
+  vlan52:
     untagged: 52
-  53:
+  vlan53:
     untagged: 53

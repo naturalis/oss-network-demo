@@ -12,5 +12,4 @@ ospf:
   swp2:
     router-address: 172.16.30.10/24
     network: '172.16.30.0/24'
-aggregation_ports:
 ...

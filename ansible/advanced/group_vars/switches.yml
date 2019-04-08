@@ -25,7 +25,6 @@ ntp:
     - swp47
     - vlan51
 timezone: 'Etc/UTC'
-ib_mgmt: 51
 fw_carp_address: 172.16.10.1
 leaf_route: '0.0.0.0/0 via 172.16.10.1'
 resolv_conf:

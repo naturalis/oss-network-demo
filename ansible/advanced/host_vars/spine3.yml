@@ -6,6 +6,10 @@ ospf:
   swp47:
     router-address: 172.16.30.11/24
     network: '172.16.30.0/24'
+  vlan250:
+    vlan: 250
+    router-address: 172.16.250.2/24
+    network: '172.16.250.0/24'
 mlag:
   primary: false
   members:

@@ -22,5 +22,5 @@ aggregation_ports:
     - swp49
     trunk: true
 access_ports:
-  1: 51
+  1: vlan51
 ...
