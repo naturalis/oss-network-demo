@@ -29,6 +29,10 @@ aggregation_ports:
   swp45:
     trunk: false
     vlan: 10
-  swp46:
+  fw-inside:
+    mlag: true
+    mlag-id: 46
+    members:
+    - swp46
     trunk: true
 ...
