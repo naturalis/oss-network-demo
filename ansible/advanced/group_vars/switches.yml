@@ -27,6 +27,9 @@ ntp:
 timezone: 'Etc/UTC'
 ib_mgmt: 51
 fw_carp_address: 172.16.10.1
+leaf_route: '0.0.0.0/0 via 172.16.10.1'
+resolv_conf:
+  - 172.16.10.1
 ptm:
   - '"spine-1":"swp47" -- "firewall1"'
   - '"spine-1":"swp1" -- "spine2":"swp47"'

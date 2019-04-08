@@ -6,6 +6,7 @@ mlag:
   - swp50
   address: 169.254.1.2/30
   peer-ip: 169.254.1.1
+  backup-ip: 192.168.200.40
   sysmac: 44:38:39:FF:11:10
 aggregation_ports:
   uplink:

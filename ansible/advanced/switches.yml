@@ -6,7 +6,7 @@
   gather_facts: yes
   become: yes
   roles:
-    - cumulus-users
+  #  - cumulus-users
     - cumulus-common
     - cumulus-metrics
     - cumulus-ptm
