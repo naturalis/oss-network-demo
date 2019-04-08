@@ -13,6 +13,7 @@ mlag:
   - swp50
   address: 169.254.1.2/30
   peer-ip: 169.254.1.1
+  backup-ip: 192.168.200.2
   sysmac: 44:38:39:FF:FA:01
 svi:
   10:
