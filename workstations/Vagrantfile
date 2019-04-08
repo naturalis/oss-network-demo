@@ -9,15 +9,15 @@ Vagrant.configure("2") do |config|
     config.vm.provider 'virtualbox' do |vb|
       vb.name = "#{simid}_workstation1"
       vb.customize ['modifyvm', :id, "--nic1", "intnet"]
-      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net11"]
+      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net8"]
     end
   end
   
-  config.vm.define 'workstation2' do |config|
+  config.vm.define 'workstation3' do |config|
     config.vm.provider 'virtualbox' do |vb|
       vb.name = "#{simid}_workstation2"
       vb.customize ['modifyvm', :id, "--nic1", "intnet"]
-      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net13"]
+      vb.customize ['modifyvm', :id, '--intnet1', "#{simid}_net18"]
     end
   end  
 end
