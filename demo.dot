@@ -21,12 +21,15 @@ graph demo {
    "spine1":"swp1" -- "spine2":"swp47"
    "spine1":"swp2" -- "spine3":"swp47"
    
-   "spine2":"swp45" -- "firewall2":"swp0"
-   "spine2":"swp46" -- "firewall2":"swp1"
-   "spine3":"swp45" -- "firewall3":"swp0"
-   "spine3":"swp46" -- "firewall3":"swp1"
+   "spine2":"swp45" -- "firewall2":"swp2"
+   "spine2":"swp46" -- "firewall2":"swp3"
+   "spine2":"swp47" -- "firewall3":"swp5"
+      
+   "spine3":"swp45" -- "firewall3":"swp2"
+   "spine3":"swp46" -- "firewall3":"swp3"
+   "spine3":"swp47" -- "firewall2":"swp5"
    
-   "firewall2":"swp2" -- "firewall2":"swp3"
+   "firewall2":"swp4" -- "firewall3":"swp4"
 
    "spine2":"swp49" -- "spine3":"swp49"
    "spine2":"swp50" -- "spine3":"swp50"
