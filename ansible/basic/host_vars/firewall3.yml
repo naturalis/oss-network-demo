@@ -10,7 +10,7 @@ opn_unset:
   - system/ipv6allow
   - trigger_initial_wizard
 
-opn_interfaces_vlan_parent_interface: vtnet3
+opn_interfaces_vlan_parent_interface: lagg0
 
 opn_interfaces_specific:
   - interface: oob
@@ -36,7 +36,7 @@ opn_interfaces_specific:
   - interface: lan
     settings:
       - key: if
-        value: vtnet3
+        value: lagg0
       - key: descr
         value: lan
       - key: ipaddr
