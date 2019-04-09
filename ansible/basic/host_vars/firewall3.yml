@@ -116,4 +116,12 @@ opn_filter:
         value: 1
       - key: destination/any
         value: 1
+        
+opn_laggs:
+  - laggif: lagg0
+    settings:
+      - key: 'members'
+        value: 'vtnet3,vtnet5'
+      - key: proto
+        value: lacp
 ...
