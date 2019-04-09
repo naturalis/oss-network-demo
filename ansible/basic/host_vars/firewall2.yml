@@ -384,4 +384,12 @@ opn_gateways:
         value: 1
       - key: ipprotocol
         value: inet
+        
+opn_laggs:
+  - laggif: lagg0
+    settings:
+      - key: 'members'
+        value: 'vtnet3,vtnet5'
+      - key: proto
+        value: lacp
 ...
