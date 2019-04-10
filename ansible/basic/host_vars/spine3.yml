@@ -7,15 +7,15 @@ nclu:
   - add routing route 0.0.0.0/0 172.16.30.10
   - add routing route 10.51.0.0/16 172.16.10.1
   - add dns nameserver ipv4 192.168.200.254 vrf mgmt
-  - add bond mlag-fw2 bond slaves swp46
-  - add bond mlag-fw3 bond slaves swp47
+  - add bond mlag-fw2-lan bond slaves swp46
+  - add bond mlag-fw3-lan bond slaves swp47
   - add bond peerlink bond slaves swp49,swp50
   - add bond ser-a bond slaves swp1
-  - add bond mlag-fw2 clag id 46
-  - add bond mlag-fw3 clag id 47
-  - add bond mlag-fw2,mlag-fw3,ser-a bridge vids 51-53
+  - add bond mlag-fw2-lan clag id 46
+  - add bond mlag-fw3-lan clag id 47
+  - add bond mlag-fw2-lan,mlag-fw3-lan,ser-a bridge vids 51-53
   - add bond ser-a clag id 2
-  - add bridge bridge ports peerlink,ser-a,swp45,mlag-fw2,mlag-fw3
+  - add bridge bridge ports peerlink,ser-a,swp45,mlag-fw2-lan,mlag-fw3-lan
   - add bridge bridge vids 10,51-53
   - add bridge bridge vlan-aware
   - add interface eth0 vrf mgmt
