@@ -14,6 +14,8 @@ nclu:
   - add bond peerlink bond slaves swp49,swp50
   - add bond ser-a bond slaves swp1
   - add bond mlag-fw2-lan clag id 46
+  - add bond mlag-fw2-lan,mlag-fw2-wan,mlag-fw3-lan,mlag-fw3-wan stp bpduguard
+  - add bond mlag-fw2-lan,mlag-fw2-wan,mlag-fw3-lan,mlag-fw3-wan stp portadminedge
   - add bond mlag-fw2-lan,mlag-fw3-lan,ser-a bridge vids 51-53
   - add bond mlag-fw2-wan clag id 45
   - add bond mlag-fw2-wan,mlag-fw3-wan bridge access 10
