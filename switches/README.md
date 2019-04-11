@@ -3,6 +3,7 @@
     ./topology_converter.py ../demo.dot -c
 
 After building Vagrantfile add to Vagrantfile:
+
     config.vbguest.auto_update = false
 
 Add to topology_converter/helper_scripts/auto_mgmt_network/dhcpd.hosts:

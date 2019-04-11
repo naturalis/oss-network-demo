@@ -24,7 +24,7 @@ opn_interfaces_specific:
   - interface: wan
     settings:
       - key: if
-        value: vtnet2
+        value: lagg1
       - key: descr
         value: wan
       - key: ipaddr
@@ -122,6 +122,12 @@ opn_laggs:
     settings:
       - key: 'members'
         value: 'vtnet3,vtnet5'
+      - key: proto
+        value: lacp
+  - laggif: lagg1
+    settings:
+      - key: 'members'
+        value: 'vtnet2,vtnet6'
       - key: proto
         value: lacp
 ...
