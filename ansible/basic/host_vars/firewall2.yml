@@ -7,8 +7,9 @@ opn_general:
   - nat/outbound/mode: "disabled"
 
 opn_unset:
-  - system/ipv6allow
   - trigger_initial_wizard
+  - system/ipv6allow
+  - gateways/gateway_item/monitor_disable
 
 opn_interfaces_vlan_parent_interface: lagg0
 
@@ -184,12 +185,46 @@ opn_alias:
         value: present
 
 opn_filter:
-  - descr: Allow oob
+  - descr: Allow ICMP wan
     settings:
+      - key: interface
+        value: wan
       - key: type
         value: pass
+      - key: ipprotocol
+        value: inet
+      - key: protocol
+        value: icmp
+      - key: statetype
+        value: keep state
+      - key: source/any
+        value: 1
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
+  - descr: Allow traffic from switches
+    settings:
+      - key: interface
+        value: wan
+      - key: type
+        value: pass
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/address
+        value: '172.16.0.0/16'
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
+  - descr: Allow oob
+    settings:
       - key: interface
         value: oob
+      - key: type
+        value: pass
       - key: ipprotocol
         value: inet
       - key: statetype
@@ -216,7 +251,7 @@ opn_filter:
         value: 1
       - key: destination/any
         value: 1
-  - descr: Allow management
+  - descr: Allow any any vlan 51
     settings:
       - key: interface
         value: opt1
@@ -234,10 +269,10 @@ opn_filter:
         value: 1
   - descr: Allow access to gateway vlan 52
     settings:
-      - key: type
-        value: pass
       - key: interface
         value: opt2
+      - key: type
+        value: pass
       - key: ipprotocol
         value: inet
       - key: statetype
@@ -250,10 +285,10 @@ opn_filter:
         value: 1
   - descr: Allow access to public networks from vlan 52
     settings:
-      - key: type
-        value: pass
       - key: interface
         value: opt2
+      - key: type
+        value: pass
       - key: ipprotocol
         value: inet
       - key: statetype
@@ -268,10 +303,10 @@ opn_filter:
         value: 1
   - descr: Allow access to gateway vlan 53
     settings:
-      - key: type
-        value: pass
       - key: interface
         value: opt3
+      - key: type
+        value: pass
       - key: ipprotocol
         value: inet
       - key: statetype
@@ -284,10 +319,10 @@ opn_filter:
         value: 1
   - descr: Allow access to public networks from vlan 53
     settings:
-      - key: type
-        value: pass
       - key: interface
         value: opt3
+      - key: type
+        value: pass
       - key: ipprotocol
         value: inet
       - key: statetype
