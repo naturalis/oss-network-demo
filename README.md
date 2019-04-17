@@ -59,5 +59,9 @@ sudo pip install lxml
     ansible-playbook switches.yml
 
 
+### Test
+    mtr --tcp 172.16.1.1
+    mtr --udp 172.16.1.1
+
 ### VirtualBox commands
     vboxmanage showvminfo 1552905337_firewall2
