@@ -1,0 +1,133 @@
+---
+opn_general:
+  - system/hostname: "firewall3"
+  - system/domain: "naturalis.nl"
+  - system/webgui/protocol: "https"
+  - system/webgui/nohttpreferercheck: "1"
+  - nat/outbound/mode: "disabled"
+
+opn_unset:
+  - system/ipv6allow
+  - trigger_initial_wizard
+
+opn_interfaces_vlan_parent_interface: lagg0
+
+opn_interfaces_specific:
+  - interface: oob
+    settings:
+      - key: if
+        value: vtnet1
+      - key: descr
+        value: oob
+      - key: ipaddr
+        value: dhcp
+  - interface: wan
+    settings:
+      - key: if
+        value: lagg1
+      - key: descr
+        value: wan
+      - key: ipaddr
+        value: 172.16.10.3
+      - key: subnet
+        value: 24
+      - key: gateway
+        value: wan_gateway
+  - interface: lan
+    settings:
+      - key: if
+        value: lagg0
+      - key: descr
+        value: lan
+      - key: ipaddr
+        value: 192.168.1.2
+      - key: subnet
+        value: 24
+  - interface: sync
+    settings:
+      - key: if
+        value: vtnet4
+      - key: descr
+        value: sync
+      - key: ipaddr
+        value: 192.168.254.2
+      - key: subnet
+        value: 29
+  - interface: opt1
+    vlan: 51
+    settings:
+      - key: ipaddr
+        value: 10.51.0.3
+      - key: descr
+        value: 51_management
+  - interface: opt2
+    vlan: 52
+    settings:
+      - key: ipaddr
+        value: 10.52.0.3
+      - key: descr
+        value: 52_office
+  - interface: opt3
+    vlan: 53
+    settings:
+      - key: ipaddr
+        value: 10.53.0.3
+      - key: descr
+        value: 53_voip
+
+opn_interfaces_all:
+  - key: 'enable'
+    value: "1"
+    interfaces: ['wan', 'lan', 'sync', 'oob', 'opt1', 'opt2', 'opt3']
+  - key: 'subnet'
+    value: "16"
+    interfaces: ['opt1', 'opt2', 'opt3']
+
+opn_filter:
+  - descr: Allow oob
+    settings:
+      - key: type
+        value: pass
+      - key: interface
+        value: oob
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/any
+        value: 1
+      - key: destination/any
+        value: 1
+      - key: log
+        value: 1
+  - descr: Allow sync
+    settings:
+      - key: interface
+        value: sync
+      - key: log
+        value: 1
+      - key: type
+        value: pass
+      - key: ipprotocol
+        value: inet
+      - key: statetype
+        value: keep state
+      - key: source/any
+        value: 1
+      - key: destination/any
+        value: 1
+        
+opn_laggs:
+  - laggif: lagg0
+    settings:
+      - key: 'members'
+        value: 'vtnet3,vtnet5'
+      - key: proto
+        value: lacp
+  - laggif: lagg1
+    settings:
+      - key: 'members'
+        value: 'vtnet2,vtnet6'
+      - key: proto
+        value: lacp
+...

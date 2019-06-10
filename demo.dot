@@ -7,7 +7,13 @@ graph demo {
  "firewall3" [function="fake"]
  "workstation1" [function="fake"]
  "workstation2" [function="fake"]
-
+ "workstation3" [function="fake"]
+ "workstation4" [function="fake"]
+ "workstation5" [function="fake"]
+ "workstation6" [function="fake"]
+ "workstation7" [function="fake"]
+ "workstation8" [function="fake"]
+ 
  "spine1" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.1"]
  "spine2" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.2"]
  "spine3" [function="spine" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.3"]
@@ -17,16 +23,21 @@ graph demo {
  "leaf3" [function="leaf" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.30"]
  "leaf4" [function="leaf" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.40"]
 
-   "spine1":"swp47" -- "firewall1":"swp1"
-   "spine1":"swp1" -- "spine2":"swp47"
-   "spine1":"swp2" -- "spine3":"swp47"
+   "spine1":"swp52" -- "firewall1":"swp1"
+   "spine1":"swp1" -- "spine2":"swp52"
+   "spine1":"swp2" -- "spine3":"swp52"
    
-   "spine2":"swp45" -- "firewall2":"swp0"
-   "spine2":"swp46" -- "firewall2":"swp1"
-   "spine3":"swp45" -- "firewall3":"swp0"
-   "spine3":"swp46" -- "firewall3":"swp1"
-   
-   "firewall2":"swp2" -- "firewall2":"swp3"
+   "spine2":"swp45" -- "firewall2":"swp2"
+   "spine2":"swp46" -- "firewall2":"swp3"
+   "spine2":"swp47" -- "firewall3":"swp5"
+   "spine2":"swp48" -- "firewall3":"swp6"
+      
+   "spine3":"swp45" -- "firewall2":"swp6"
+   "spine3":"swp46" -- "firewall2":"swp5"
+   "spine3":"swp47" -- "firewall3":"swp3"
+   "spine3":"swp48" -- "firewall3":"swp2"
+
+   "firewall2":"swp4" -- "firewall3":"swp4"
 
    "spine2":"swp49" -- "spine3":"swp49"
    "spine2":"swp50" -- "spine3":"swp50"
@@ -40,5 +51,11 @@ graph demo {
    "leaf2":"swp49" -- "leaf3":"swp52"
    
    "workstation1":"swp1" -- "leaf1":"swp1"
-   "workstation2":"swp1" -- "leaf3":"swp1"
+   "workstation2":"swp1" -- "leaf2":"swp1"
+   "workstation3":"swp1" -- "leaf3":"swp1"
+   "workstation4":"swp1" -- "leaf4":"swp1"
+   "workstation5":"swp1" -- "leaf1":"swp2"
+   "workstation6":"swp1" -- "leaf2":"swp2"
+   "workstation7":"swp1" -- "leaf3":"swp2"
+   "workstation8":"swp1" -- "leaf4":"swp2"
 }

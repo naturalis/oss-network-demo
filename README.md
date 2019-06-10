@@ -25,22 +25,30 @@ vagrant plugin install vagrant-vbguest
 
 
 ### Update Ansible on guest oob-mgmt-server, install lxml
-
 ```bash
+oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+
 yes | sudo apt-add-repository ppa:ansible/ansible && \
 sudo apt update && \
 sudo apt install -y ansible && \
 sudo pip install lxml
 ```
 
-### Run ansible commands from oob-mgmt-server
-
+### Download git repo on oob-mgmt-server
     oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
     sudo -s
     su cumulus
     git clone https://github.com/naturalis/oss-network-demo/
     cd oss-network-demo/ansible
 
+
+### Install Ansible roles on oob-mgmt-server
+    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    
+    oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
+
+
+### Run ansible commands from oob-mgmt-server
     ansible -c paramiko -m command -a "uptime" firewall1
     ansible all -c paramiko -m shell -a 'uptime' -l firewall1
 
@@ -50,6 +58,10 @@ sudo pip install lxml
     # Deploy switches:
     ansible-playbook switches.yml
 
+
+### Test
+    mtr --tcp 172.16.1.1
+    mtr --udp 172.16.1.1
 
 ### VirtualBox commands
     vboxmanage showvminfo 1552905337_firewall2

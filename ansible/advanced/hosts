@@ -24,3 +24,6 @@ spines
 [network:children]
 firewalls
 switches
+
+[firewalls:vars]
+ansible_shell_type=csh

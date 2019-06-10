@@ -1,0 +1,15 @@
+---
+lo: 127.0.0.1/8
+rsyslog_interface: swp47
+snmp_listen: 145.136.246.202
+ospf:
+  swp47:
+    router-address: 172.16.1.2/24
+    network: '172.16.1.0/24'
+  swp1:
+    router-address: 172.16.20.10/24
+    network: '172.16.20.0/24'
+  swp2:
+    router-address: 172.16.30.10/24
+    network: '172.16.30.0/24'
+...

@@ -1,0 +1,19 @@
+- name: Cumulus Switch provisioning
+  hosts: switches
+  vars:
+    check_ptm: false
+    check_lldp: false
+  gather_facts: yes
+  become: yes
+  roles:
+  #  - cumulus-users
+    - cumulus-common
+    - cumulus-metrics
+    - cumulus-ptm
+
+- name: Cumulus Setup interfaces
+  hosts: switches
+  gather_facts: no
+  become: true
+  roles:
+    - cumulus-interfaces

@@ -1,0 +1,26 @@
+---
+lo: 127.0.0.1/8
+mlag:
+  primary: true
+  members:
+  - swp50
+  address: 169.254.1.1/30
+  peer-ip: 169.254.1.2
+  backup-ip: 192.168.200.20
+  sysmac: 44:38:39:FF:11:12
+aggregation_ports:
+  uplink:
+    mlag: true
+    mlag-id: 1
+    members:
+    - swp52
+    trunk: true
+  downlink:
+    mlag: true
+    mlag-id: 2
+    members:
+    - swp49
+    trunk: true
+access_ports:
+  1: vlan51
+...
