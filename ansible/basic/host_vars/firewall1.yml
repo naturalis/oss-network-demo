@@ -51,7 +51,7 @@ opn_filter:
         value: 1
       - key: log
         value: 1
- - descr: 'Allow switches and firewalls to outside'
+  - descr: 'Allow switches and firewalls to outside'
     settings:
       - key: type
         value: pass
