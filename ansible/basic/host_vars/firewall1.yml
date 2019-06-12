@@ -35,7 +35,7 @@ opn_interfaces_all:
     interfaces: ['oob', 'wan', 'lan']
 
 opn_filter:
-  - descr: 'Allow internal VLANs to outside'
+  - descr: Allow internal VLANs to outside
     settings:
       - key: type
         value: pass
@@ -51,7 +51,7 @@ opn_filter:
         value: 1
       - key: log
         value: 1
-  - descr: 'Allow switches and firewalls to outside'
+  - descr: Network devices to outside
     settings:
       - key: type
         value: pass
