@@ -47,8 +47,8 @@ sudo pip install lxml
 
 
 ### Run ansible commands from oob-mgmt-server
-    ansible -c paramiko -m command -a "uptime" firewall1
-    ansible all -c paramiko -m shell -a 'uptime' -l firewall1
+    ansible -c paramiko -m command -a "uptime" firewalls
+    ansible all -c paramiko -m shell -a 'uptime' -l firewalls
 
     # Deploy firewalls:
     ansible-playbook -c paramiko firewalls.yml
