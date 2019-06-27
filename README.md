@@ -11,11 +11,9 @@ vagrant plugin install vagrant-vbguest
 ```
 
 ### Run vagrant up on host
-    # Start oob-mgmt-switch and oob-mgmt-server:
-    oss-network-demo/topology_converter> vagrant up oob-mgmt-switch oob-mgmt-server
-
+   
     # Start switches:
-    oss-network-demo/topology_converter> vagrant up
+    oss-network-demo/switches> vagrant up
 
     # Start firewalls:
     oss-network-demo/firewalls> vagrant up
