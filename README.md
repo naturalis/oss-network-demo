@@ -11,11 +11,9 @@ vagrant plugin install vagrant-vbguest
 ```
 
 ### Run vagrant up on host
-    # Start oob-mgmt-switch and oob-mgmt-server:
-    oss-network-demo/topology_converter> vagrant up oob-mgmt-switch oob-mgmt-server
-
+   
     # Start switches:
-    oss-network-demo/topology_converter> vagrant up
+    oss-network-demo/switches> vagrant up
 
     # Start firewalls:
     oss-network-demo/firewalls> vagrant up
@@ -35,7 +33,7 @@ sudo pip install lxml
 ```
 
 ### Download git repo on oob-mgmt-server
-    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo -s
     su cumulus
     git clone https://github.com/naturalis/oss-network-demo/
@@ -43,21 +41,18 @@ sudo pip install lxml
 
 
 ### Install Ansible roles on oob-mgmt-server
-    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
-    
+    oss-network-demo/switches> vagrant ssh oob-mgmt-server
     oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
 
-
 ### Run ansible commands from oob-mgmt-server
-    ansible -c paramiko -m command -a "uptime" firewall1
-    ansible all -c paramiko -m shell -a 'uptime' -l firewall1
-
-    # Deploy firewalls:
-    ansible-playbook -c paramiko firewalls.yml
+    ansible -c paramiko -m command -a "uptime" firewalls
+    ansible all -c paramiko -m shell -a 'uptime' -l firewalls
 
     # Deploy switches:
     ansible-playbook switches.yml
 
+    # Deploy firewalls:
+    ansible-playbook -c paramiko firewalls.yml
 
 ### Test
     mtr --tcp 172.16.1.1
