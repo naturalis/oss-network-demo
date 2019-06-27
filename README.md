@@ -45,17 +45,15 @@ sudo pip install lxml
     
     oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
 
-
 ### Run ansible commands from oob-mgmt-server
     ansible -c paramiko -m command -a "uptime" firewalls
     ansible all -c paramiko -m shell -a 'uptime' -l firewalls
 
-    # Deploy firewalls:
-    ansible-playbook -c paramiko firewalls.yml
-
     # Deploy switches:
     ansible-playbook switches.yml
 
+    # Deploy firewalls:
+    ansible-playbook -c paramiko firewalls.yml
 
 ### Test
     mtr --tcp 172.16.1.1
