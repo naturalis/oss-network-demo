@@ -33,7 +33,7 @@ sudo pip install lxml
 ```
 
 ### Download git repo on oob-mgmt-server
-    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo -s
     su cumulus
     git clone https://github.com/naturalis/oss-network-demo/
@@ -41,7 +41,7 @@ sudo pip install lxml
 
 
 ### Install Ansible roles on oob-mgmt-server
-    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    oss-network-demo/switches> vagrant ssh oob-mgmt-server
     
     oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
 
