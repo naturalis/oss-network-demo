@@ -2,13 +2,11 @@
 
 Try an open source software based network, using OPNsense and Cumulus.
 
-
 ### Install vagrant-vbguest plugin on host
-```bash
-wget -c https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
-sudo dpkg -i vagrant_2.2.4_x86_64.deb
-vagrant plugin install vagrant-vbguest
-```
+
+    wget -c https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
+    sudo dpkg -i vagrant_2.2.4_x86_64.deb
+    vagrant plugin install vagrant-vbguest
 
 ### Run vagrant up on host
    
@@ -21,16 +19,10 @@ vagrant plugin install vagrant-vbguest
     # Start workstations:
     oss-network-demo/workstations> vagrant up
 
+### Install lxml on oob-mgmt-server
 
-### Update Ansible on guest oob-mgmt-server, install lxml
-```bash
-oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
-
-yes | sudo apt-add-repository ppa:ansible/ansible && \
-sudo apt update && \
-sudo apt install -y ansible && \
-sudo pip install lxml
-```
+    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    sudo pip3 install lxml
 
 ### Download git repo on oob-mgmt-server
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
@@ -38,7 +30,6 @@ sudo pip install lxml
     su cumulus
     git clone https://github.com/naturalis/oss-network-demo/
     cd oss-network-demo/ansible
-
 
 ### Install Ansible roles on oob-mgmt-server
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
