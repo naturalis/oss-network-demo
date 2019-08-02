@@ -2,7 +2,7 @@
 
 Clone repo
 
-    git clone -b v4.6.9 https://github.com/CumulusNetworks/topology_converter
+    git clone -b v4.7.0 https://github.com/CumulusNetworks/topology_converter
 
     ./topology_converter.py ../demo.dot -c
 
