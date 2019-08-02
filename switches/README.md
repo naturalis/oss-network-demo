@@ -2,10 +2,14 @@
 
 Clone repo
 
+    cd ~/
+    git clone https://github.com/naturalis/oss-network-demo
+    cp oss-network-demo/demo.dot .
     git clone -b v4.7.0 https://github.com/CumulusNetworks/topology_converter
-
-    ./topology_converter.py ../demo.dot -c
-
+    python3 topology_converter.py ../demo.dot -c
+    cp -r helper_scripts ../oss-network-demo/switches
+    cp -r Vagrantfile ../oss-network-demo/switches
+ 
 After building Vagrantfile add to Vagrantfile:
 
     config.vbguest.auto_update = false
