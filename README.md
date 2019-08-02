@@ -24,16 +24,13 @@ Try an open source software based network, using OPNsense and Cumulus.
     oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
     sudo pip3 install lxml
 
-### Download git repo on oob-mgmt-server
+### Download git repo on oob-mgmt-server and install Ansible roles
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo -s
     su cumulus
     git clone https://github.com/naturalis/oss-network-demo/
-    cd oss-network-demo/ansible
-
-### Install Ansible roles on oob-mgmt-server
-    oss-network-demo/switches> vagrant ssh oob-mgmt-server
-    oss-network-demo/ansible/basic/roles> ansible-galaxy install -r requirements.yml --roles-path .
+    cd oss-network-demo/ansible/roles
+    ansible-galaxy install -r requirements.yml --roles-path .
 
 ### Run ansible commands from oob-mgmt-server
     ansible -c paramiko -m command -a "uptime" firewalls
