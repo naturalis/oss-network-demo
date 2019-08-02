@@ -33,7 +33,7 @@ Try an open source software based network, using OPNsense and Cumulus.
 
 ### Install Ansible roles on oob-mgmt-server
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
-    oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
+    oss-network-demo/ansible/basic/roles$ ansible-galaxy install -r requirements.yml --roles-path .
 
 ### Run ansible commands from oob-mgmt-server
     ansible -c paramiko -m command -a "uptime" firewalls
