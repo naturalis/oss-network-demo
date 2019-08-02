@@ -33,17 +33,17 @@ Try an open source software based network, using OPNsense and Cumulus.
 
 ### Install Ansible roles on oob-mgmt-server
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
-    oss-network-demo/ansible/basic/roles$ ansible-galaxy install -r requirements.yml --roles-path .
+    oss-network-demo/ansible/basic/roles> ansible-galaxy install -r requirements.yml --roles-path .
 
 ### Run ansible commands from oob-mgmt-server
     ansible -c paramiko -m command -a "uptime" firewalls
     ansible all -c paramiko -m shell -a 'uptime' -l firewalls
 
     # Deploy switches:
-    ansible-playbook switches.yml
+    oss-network-demo/ansible/basic> ansible-playbook switches.yml
 
     # Deploy firewalls:
-    ansible-playbook -c paramiko firewalls.yml
+    oss-network-demo/ansible/basic> ansible-playbook -c paramiko firewalls.yml
 
 ### Test
     mtr --tcp 172.16.1.1
