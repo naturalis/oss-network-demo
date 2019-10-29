@@ -28,6 +28,7 @@ Try an open source software based network, using OPNsense and Cumulus.
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo -s
     su cumulus
+    cd ~/
     git clone https://github.com/naturalis/oss-network-demo/
     cd oss-network-demo/ansible/roles
     ansible-galaxy install -r requirements.yml --roles-path .
