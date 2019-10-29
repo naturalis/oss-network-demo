@@ -21,7 +21,7 @@ Try an open source software based network, using OPNsense and Cumulus.
 
 ### Install lxml on oob-mgmt-server
 
-    oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo pip3 install lxml
 
 ### Download git repo on oob-mgmt-server and install Ansible roles
