@@ -30,7 +30,7 @@ Try an open source software based network, using OPNsense and Cumulus.
     su cumulus
     cd ~/
     git clone https://github.com/naturalis/oss-network-demo/
-    cd oss-network-demo/ansible/roles
+    cd oss-network-demo/ansible/basic/roles
     ansible-galaxy install -r requirements.yml --roles-path .
 
 ### Run ansible commands from oob-mgmt-server
