@@ -34,6 +34,7 @@ Try an open source software based network, using OPNsense and Cumulus.
     ansible-galaxy install -r requirements.yml --roles-path .
 
 ### Run ansible commands from oob-mgmt-server
+    cd oss-network-demo/ansible/basic
     ansible -m command -a "uptime" firewalls
     ansible all -m shell -a 'uptime' -l firewalls
 
