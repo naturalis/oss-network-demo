@@ -35,8 +35,11 @@ Try an open source software based network, using OPNsense and Cumulus.
 
 ### Run ansible commands from oob-mgmt-server
     cd oss-network-demo/ansible/basic
+    
+    # Test connectivity to firewalls and switches
     ansible -m command -a "uptime" firewalls
     ansible all -m shell -a 'uptime' -l firewalls
+    ansible -m command -a "uptime" switches
 
     # Deploy switches:
     oss-network-demo/ansible/basic> ansible-playbook switches.yml
