@@ -48,6 +48,11 @@ Try an open source software based network, using OPNsense and Cumulus.
     # Deploy firewalls:
     oss-network-demo/ansible/basic> ansible-playbook firewalls.yml
 
+### Login to webinterface firewalls from host
+    Firewall1: https://localhost:10443
+    Firewall2: https://localhost:2209
+    Firewall3: https://localhost:2211
+
 ### Test
     mtr --tcp 172.16.1.1
     mtr --udp 172.16.1.1
