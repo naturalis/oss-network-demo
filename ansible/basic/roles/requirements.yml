@@ -9,5 +9,5 @@
 
 - name: ansible-opnsense
   src: https://github.com/naturalis/ansible-opnsense
-  version: v1.2
+#  version: v1.2
 ...
