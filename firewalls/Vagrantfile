@@ -35,10 +35,10 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--macaddress2", "080027D6D881"]
       #nic3, wan1, vtnet2 (outside)
       vb.customize ["modifyvm", :id, "--nic3", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet3", "#{simid}_net3"]
+      vb.customize ["modifyvm", :id, "--intnet3", "#{simid}_net4"]
       #nic4, lan1, vtnet3 (inside)
       vb.customize ["modifyvm", :id, "--nic4", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet4", "#{simid}_net1"]
+      vb.customize ["modifyvm", :id, "--intnet4", "#{simid}_net5"]
       #nic5, sync, vtnet4:
       vb.customize ["modifyvm", :id, "--nic5", "intnet"]
       vb.customize ["modifyvm", :id, "--intnet5", "opnsense-sync"]
@@ -46,12 +46,12 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
       #nic6, lan2, vtnet5 (inside):
       vb.customize ["modifyvm", :id, "--nic6", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet6", "#{simid}_net17"]
+      vb.customize ["modifyvm", :id, "--intnet6", "#{simid}_net9"]
       vb.customize ["modifyvm", :id, "--nictype6", "virtio"]
       vb.customize ["modifyvm", :id, "--nicpromisc6", "allow-all"]
       #nic7, wan2, vtnet6 (outside):
       vb.customize ["modifyvm", :id, "--nic7", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet7", "#{simid}_net5"]
+      vb.customize ["modifyvm", :id, "--intnet7", "#{simid}_net8"]
       vb.customize ["modifyvm", :id, "--nictype7", "virtio"]
       vb.customize ["modifyvm", :id, "--nicpromisc7", "allow-all"]
     end
@@ -68,10 +68,10 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--macaddress2", "0800279B2AAC"]
       #nic3, wan, vtnet2 (outside)
       vb.customize ["modifyvm", :id, "--nic3", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet3", "#{simid}_net4"]
+      vb.customize ["modifyvm", :id, "--intnet3", "#{simid}_net11"]
       #nic4, lan, vtnet3 (inside)
       vb.customize ["modifyvm", :id, "--nic4", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet4", "#{simid}_net6"]
+      vb.customize ["modifyvm", :id, "--intnet4", "#{simid}_net10"]
       #nic5, sync, vtnet4:
       vb.customize ["modifyvm", :id, "--nic5", "intnet"]
       vb.customize ["modifyvm", :id, "--intnet5", "opnsense-sync"]
@@ -79,12 +79,12 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
       #nic6, lan2, vtnet5 (inside):
       vb.customize ["modifyvm", :id, "--nic6", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet6", "#{simid}_net23"]
+      vb.customize ["modifyvm", :id, "--intnet6", "#{simid}_net6"]
       vb.customize ["modifyvm", :id, "--nictype6", "virtio"]
       vb.customize ["modifyvm", :id, "--nicpromisc6", "allow-all"]
       #nic7, wan2, vtnet6 (outside):
       vb.customize ["modifyvm", :id, "--nic7", "intnet"]
-      vb.customize ["modifyvm", :id, "--intnet7", "#{simid}_net13"]
+      vb.customize ["modifyvm", :id, "--intnet7", "#{simid}_net7"]
       vb.customize ["modifyvm", :id, "--nictype7", "virtio"]
       vb.customize ["modifyvm", :id, "--nicpromisc7", "allow-all"]
     end
