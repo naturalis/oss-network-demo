@@ -5,7 +5,9 @@
 
 - name: ansible-cumulus
   src: https://github.com/naturalis/ansible-cumulus
+  version: v1.1
 
 - name: ansible-opnsense
   src: https://github.com/naturalis/ansible-opnsense
+#  version: v1.2
 ...

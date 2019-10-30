@@ -2,13 +2,11 @@
 
 Try an open source software based network, using OPNsense and Cumulus.
 
-
 ### Install vagrant-vbguest plugin on host
-```bash
-wget -c https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
-sudo dpkg -i vagrant_2.2.4_x86_64.deb
-vagrant plugin install vagrant-vbguest
-```
+
+    wget -c https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
+    sudo dpkg -i vagrant_2.2.4_x86_64.deb
+    vagrant plugin install vagrant-vbguest
 
 ### Run vagrant up on host
    
@@ -21,38 +19,39 @@ vagrant plugin install vagrant-vbguest
     # Start workstations:
     oss-network-demo/workstations> vagrant up
 
+### Install lxml on oob-mgmt-server
 
-### Update Ansible on guest oob-mgmt-server, install lxml
-```bash
-oss-network-demo/topology_converter> vagrant ssh oob-mgmt-server
+    oss-network-demo/switches> vagrant ssh oob-mgmt-server
+    sudo pip install lxml
+    sudo pip3 install lxml
 
-yes | sudo apt-add-repository ppa:ansible/ansible && \
-sudo apt update && \
-sudo apt install -y ansible && \
-sudo pip install lxml
-```
-
-### Download git repo on oob-mgmt-server
+### Download git repo on oob-mgmt-server and install Ansible roles
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo -s
     su cumulus
+    cd ~/
     git clone https://github.com/naturalis/oss-network-demo/
-    cd oss-network-demo/ansible
-
-
-### Install Ansible roles on oob-mgmt-server
-    oss-network-demo/switches> vagrant ssh oob-mgmt-server
-    oss-network-demo/ansible/roles$ ansible-galaxy install -r requirements.yml --roles-path .
+    cd oss-network-demo/ansible/basic/roles
+    ansible-galaxy install -r requirements.yml --roles-path .
 
 ### Run ansible commands from oob-mgmt-server
-    ansible -c paramiko -m command -a "uptime" firewalls
-    ansible all -c paramiko -m shell -a 'uptime' -l firewalls
+    cd oss-network-demo/ansible/basic
+    
+    # Test connectivity to firewalls and switches
+    ansible -m command -a "uptime" firewalls
+    ansible all -m shell -a 'uptime' -l firewalls
+    ansible -m command -a "uptime" switches
 
     # Deploy switches:
-    ansible-playbook switches.yml
+    oss-network-demo/ansible/basic> ansible-playbook switches.yml
 
     # Deploy firewalls:
-    ansible-playbook -c paramiko firewalls.yml
+    oss-network-demo/ansible/basic> ansible-playbook firewalls.yml
+
+### Login to webinterface firewalls from host
+    Firewall1: https://localhost:10443
+    Firewall2: https://localhost:2209
+    Firewall3: https://localhost:2211
 
 ### Test
     mtr --tcp 172.16.1.1

@@ -1,6 +1,6 @@
 #!/bin/bash
-# Created by Topology-Converter v4.6.9
-#    Template Revision: v4.6.8
+# Created by Topology-Converter v4.7.0
+#    Template Revision: v4.7.0
 #    https://github.com/cumulusnetworks/topology_converter
 #    using topology data from: ../demo.dot
 
@@ -15,13 +15,13 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/oss-network-demo"
-REPONAME="oss-network-demo"
+REPOSITORY="https://github.com/CumulusNetworks/Documents"
+REPONAME="Documents"
 
 #Install Automation Tools
 puppet=0
 ansible=1
-ansible_version=2.5.4
+ansible_version=2.6.3
 
 #######################
 
@@ -45,10 +45,9 @@ install_puppet(){
 
 install_ansible(){
     echo " ### Installing Ansible... ###"
-    apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
-    pip install pip --upgrade
-    pip install setuptools --upgrade
-    pip install ansible==$ansible_version --upgrade
+    apt-get install -qy sshpass libssh-dev python3-dev libssl-dev libffi-dev python3-pip
+    /usr/bin/pip3 install setuptools --upgrade
+    /usr/bin/pip3 install ansible==$ansible_version --upgrade
 }
 
 ## MOTD
@@ -73,6 +72,20 @@ base64 -d /etc/motd.base64 > /etc/motd
 rm /etc/motd.base64
 chmod 755 /etc/motd
 
+echo " ### Overwriting DNS Server to 8.8.8.8 ###"
+#Required because the installation of DNSmasq throws off DNS momentarily
+sed '/DNS=/d' /etc/systemd/resolved.conf
+sed '/\[Resolve\]/a DNS=8.8.8.8 1.1.1.1' /etc/systemd/resolved.conf
+systemctl restart systemd-resolved.service
+
+echo " ### Updating APT Repository... ###"
+apt-get update -y
+
+echo " ### Installing Packages... ###"
+apt-get install -y htop isc-dhcp-server tree apache2 git python-pip dnsmasq apt-cacher-ng lldpd ntp ifupdown2
+#modprobe 8021q
+#modprobe bonding
+#echo "8021q" >> /etc/modules
 
 echo " ### Overwriting /etc/network/interfaces ###"
 cat <<EOT > /etc/network/interfaces
@@ -89,18 +102,8 @@ iface eth1 inet static
     address 192.168.200.254/24
 EOT
 
-echo " ### Overwriting DNS Server to 8.8.8.8 ###"
-#Required because the installation of DNSmasq throws off DNS momentarily
-echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/head
-
-echo " ### Updating APT Repository... ###"
-apt-get update -y
-
-echo " ### Installing Packages... ###"
-apt-get install -y htop isc-dhcp-server tree apache2 vlan git python-pip dnsmasq ifenslave apt-cacher-ng lldpd ntp
-modprobe 8021q
-#modprobe bonding
-echo "8021q" >> /etc/modules
+echo " ### Applying Network Configuration via IFUPDOWN2... ###"
+/sbin/ifreload -a
 
 if [ $puppet -eq 1 ]; then
     echo " ### Installing Puppet ### "
@@ -171,6 +174,7 @@ echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 
 echo ' ### Setting UP NAT and Routing on MGMT server... ### '
 echo -e '#!/bin/bash \n/sbin/iptables -t nat -A POSTROUTING -o vagrant -j MASQUERADE' > /etc/rc.local
+chmod +x /etc/rc.local
 echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/98-ipforward.conf
 
 

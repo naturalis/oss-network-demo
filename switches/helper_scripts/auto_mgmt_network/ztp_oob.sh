@@ -1,6 +1,6 @@
 #!/bin/bash
-# Created by Topology-Converter v4.6.9
-#    Template Revision: v4.6.8
+# Created by Topology-Converter v4.7.0
+#    Template Revision: v4.7.0
 
 function error() {
   echo -e "\e[0;33mERROR: The Zero Touch Provisioning script failed while running the command $BASH_COMMAND at line $BASH_LINENO.\e[0m" >&2

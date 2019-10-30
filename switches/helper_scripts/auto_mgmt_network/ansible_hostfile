@@ -1,5 +1,5 @@
-# Created by Topology-Converter v4.6.9
-#    Template Revision: v4.6.8
+# Created by Topology-Converter v4.7.0
+#    Template Revision: v4.7.0
 #    https://github.com/cumulusnetworks/topology_converter
 #    using topology data from: ../demo.dot
 
@@ -16,17 +16,17 @@ oob-mgmt-switch ansible_host=192.168.200.100
 
 
 [leaf]
-leaf4 ansible_host=192.168.200.40
 leaf1 ansible_host=192.168.200.10
-leaf3 ansible_host=192.168.200.30
 leaf2 ansible_host=192.168.200.20
+leaf3 ansible_host=192.168.200.30
+leaf4 ansible_host=192.168.200.40
 
 
 
 [spine]
 spine1 ansible_host=192.168.200.1
-spine3 ansible_host=192.168.200.3
 spine2 ansible_host=192.168.200.2
+spine3 ansible_host=192.168.200.3
 
 
 
