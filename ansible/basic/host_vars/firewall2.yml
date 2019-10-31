@@ -143,46 +143,73 @@ opn_virtualip_all:
     vhids: ['51', '52', '53']
 
 opn_alias:
-  - name: private
+  - uuid: 6e319c0e-f016-11e9-b3fd-1002b50d9337
     settings:
+      - key: name
+        value: private
       - key: type
         value: network
-      - key: address
-        value: "10.0.0.0/8 172.16.0.0/12 192.168.0.0/16"
-      - key: state
-        value: present
-  - name: ict
+      - key: content
+        list:
+          - 10.0.0.0/8
+          - 172.16.0.0/12
+          - 192.168.0.0/16
+      - key: enabled
+        value: "1"
+      - key: description
+        value: Private networks
+  - uuid: b1c3a4b4-f019-11e9-8d2c-1002b50d9337
     settings:
+      - key: name
+        value: ict
       - key: type
         value: network
-      - key: address
-        value: "172.16.1.0/24 172.16.10.0/24 172.16.20.0/24 172.16.30.0/24"
-      - key: state
-        value: present
-  - name: gateway_51
+      - key: content
+        list:
+          - 172.16.1.0/24
+          - 172.16.10.0/24
+          - 172.16.20.0/24
+          - 172.16.30.0/24
+      - key: enabled
+        value: "1"
+      - key: description
+        value: Team ict  
+  - uuid: b1c3a4b4-f019-11e9-8d2c-1002b50d9331
     settings:
+      - key: name
+        value: gateway_51
       - key: type
-        value: network
-      - key: address
+        value: host
+      - key: content
         value: "10.51.0.1/32"
-      - key: state
-        value: present
-  - name: gateway_52
+      - key: enabled
+        value: "1"
+      - key: description
+        value: Gateway VLAN 51
+  - uuid: b1c3a4b4-f019-11e9-8d2c-1002b50d9332
     settings:
+      - key: name
+        value: gateway_52
       - key: type
-        value: network
-      - key: address
+        value: host
+      - key: content
         value: "10.52.0.1/32"
-      - key: state
-        value: present
-  - name: gateway_53
+      - key: enabled
+        value: "1"
+      - key: description
+        value: Gateway VLAN 52
+  - uuid: b1c3a4b4-f019-11e9-8d2c-1002b50d9333
     settings:
+      - key: name
+        value: gateway_53
       - key: type
-        value: network
-      - key: address
+        value: host
+      - key: content
         value: "10.53.0.1/32"
-      - key: state
-        value: present
+      - key: enabled
+        value: "1"
+      - key: description
+        value: Gateway VLAN 53
 
 opn_filter:
   - descr: Allow ICMP wan
