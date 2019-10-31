@@ -1,6 +1,9 @@
 # oss-network-demo
 
-Try an open source software based network, using OPNsense and Cumulus.
+Try an open source software based network, using OPNsense and Cumulus. Depends on:
+- https://github.com/naturalis/ansible-opnsense v1.3
+- https://github.com/naturalis/ansible-cumulus v1.1
+See requirements.yml in ansible/roles
 
 ### Install vagrant-vbguest plugin on host
 
@@ -9,6 +12,8 @@ Try an open source software based network, using OPNsense and Cumulus.
     vagrant plugin install vagrant-vbguest
 
 ### Run vagrant up on host
+    # Download repo:
+    git clone -b v1.3 https://github.com/naturalis/oss-network-demo/
    
     # Start switches:
     oss-network-demo/switches> vagrant up
@@ -30,7 +35,7 @@ Try an open source software based network, using OPNsense and Cumulus.
     sudo -s
     su cumulus
     cd ~/
-    git clone https://github.com/naturalis/oss-network-demo/
+    git clone -b v1.3 https://github.com/naturalis/oss-network-demo/
     cd oss-network-demo/ansible/basic/roles
     ansible-galaxy install -r requirements.yml --roles-path .
 
