@@ -25,11 +25,12 @@ See requirements.yml in ansible/roles
     # Start workstations:
     oss-network-demo/workstations> vagrant up
 
-### Install lxml on oob-mgmt-server
+### Install lxml and srm on oob-mgmt-server
 
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
     sudo pip install lxml
     sudo pip3 install lxml
+    sudo apt install secure-delete
 
 ### Download git repo on oob-mgmt-server and install Ansible roles
     oss-network-demo/switches> vagrant ssh oob-mgmt-server
