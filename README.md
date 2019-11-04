@@ -14,7 +14,7 @@ See requirements.yml in ansible/roles
 
 ### Run vagrant up on host
     # Download repo:
-    git clone -b v1.3 https://github.com/naturalis/oss-network-demo/
+    git clone -b v0.4 https://github.com/naturalis/oss-network-demo/
    
     # Start switches:
     oss-network-demo/switches> vagrant up
@@ -36,7 +36,7 @@ See requirements.yml in ansible/roles
     sudo -s
     su cumulus
     cd ~/
-    git clone -b v1.3 https://github.com/naturalis/oss-network-demo/
+    git clone -b v0.4 https://github.com/naturalis/oss-network-demo/
     cd oss-network-demo/ansible/basic/roles
     ansible-galaxy install -r requirements.yml --roles-path .
 
